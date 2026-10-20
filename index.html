@@ -1,0 +1,1273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Claire Kim · Engineering Portfolio</title>
+<meta name="description" content="Claire W. Kim, Cornell mechanical engineering student working on spacecraft deployment mechanisms: light sails flown on the ISS, ChipSat deployers, and four summers at the U.S. Naval Research Laboratory.">
+<meta name="author" content="Claire W. Kim">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Claire Kim · Engineering Portfolio">
+<meta property="og:description" content="Claire W. Kim, Cornell mechanical engineering student working on spacecraft deployment mechanisms: light sails flown on the ISS, ChipSat deployers, and four summers at the U.S. Naval Research Laboratory.">
+<meta property="og:image" content="headshot.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230a0a0b'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='26' fill='white' text-anchor='middle'%3ECK%3C/text%3E%3C/svg%3E">
+<style>html{color-scheme:light}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:wght@500..700&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: engineering drawing set — one "sheet" per project, image-led, title-block footer.
+   Single deliberate theme: white paper, black ink, cool annotation grey. */
+:root {
+  --paper: #ffffff;
+  --ink: #0a0a0b;
+  --ink-2: #3d3f43;
+  --note: #6b7480;
+  --rule: #dcdee1;
+  --hatch: #f3f4f5;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --step--1: 0.8125rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.3rem;
+  --step-2: 1.9rem;
+  --step-3: clamp(2.2rem, 5vw, 3.6rem);
+  --step-4: clamp(3rem, 9vw, 7.25rem);
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--body); font-size: var(--step-0); line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.wrap {
+  max-width: 1240px; margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+.mono { font-family: var(--mono); font-size: var(--step--1); letter-spacing: 0.04em; text-transform: uppercase; }
+.note { color: var(--note); }
+h1, h2, h3 { font-family: var(--display); font-variation-settings: "wdth" 112; text-wrap: balance; margin: 0; line-height: 1.02; }
+
+/* ---------- header ---------- */
+.top { border-bottom: 1px solid var(--ink); position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--paper); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 21; background: var(--paper); }
+html { scroll-padding-top: 76px; }
+.top nav a.on { text-decoration: underline; text-decoration-thickness: 2px; }
+.top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 28px; padding-block: 14px; }
+.mark { font-family: var(--display); font-weight: 700; font-variation-settings: "wdth" 120; text-decoration: none; letter-spacing: 0.01em; }
+.top nav { display: flex; flex-wrap: wrap; gap: 6px 22px; }
+.top nav a { text-decoration: none; font-family: var(--mono); font-size: var(--step--1); text-transform: uppercase; letter-spacing: 0.06em; }
+.top nav a:hover { text-decoration: underline; }
+
+/* ---------- hero ---------- */
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr); gap: 40px; padding-block: 64px 56px; align-items: center; }
+.hero h1 { font-family: "Instrument Sans", "Helvetica Neue", Arial, sans-serif; font-size: clamp(3rem, 8.5vw, 6.6rem); font-weight: 600; font-variation-settings: normal; letter-spacing: -0.035em; line-height: 0.98; }
+.hero h1 span { display: block; }
+.thesis { font-size: var(--step-1); line-height: 1.4; max-width: 32ch; margin: 28px 0 0; }
+.facts { display: grid; align-items: stretch; grid-template-columns: minmax(0, 0.8fr) minmax(0, 0.9fr) minmax(0, 1.35fr); gap: 4px 28px; margin: 36px 0 0; padding: 16px 0 0; border-top: 1px solid var(--ink); justify-content: start; }
+.facts dt { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--note); }
+.facts dd { margin: 0; font-weight: 600; }
+.facts > div { min-width: 0; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.facts > div > dd { flex: 1; display: flex; align-items: center; justify-content: center; text-wrap: balance; }
+.drawing { position: relative; margin: 0; }
+.drawing svg { width: 100%; height: auto; display: block; }
+.drawing figcaption { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid var(--ink); padding-top: 8px; margin-top: 6px; }
+.sail { transform-origin: 200px 200px; transform-box: view-box; animation: unfurl 2.6s cubic-bezier(.2,.7,.1,1) both; }
+@keyframes unfurl { from { transform: rotate(-35deg) scale(0.28); } to { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .sail { animation: none; } }
+
+/* ---------- sections ---------- */
+.section { border-top: 1px solid var(--ink); }
+.section > .wrap { padding-block: 56px 72px; }
+.shead { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px 24px; margin-bottom: 36px; }
+.shead h2 { font-size: var(--step-3); font-weight: 700; letter-spacing: -0.01em; }
+.label { font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--note); margin: 0 0 8px; padding-bottom: 6px; border-bottom: 1px solid var(--rule); }
+
+/* about */
+.about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 40px 64px; align-items: start; }
+.about > * { min-width: 0; }
+.portrait { margin: 0; }
+.portrait img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border: 1px solid var(--ink); }
+.portrait figcaption { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid var(--ink); padding-top: 8px; margin-top: 8px; }
+.about-text { padding-top: 26px; }
+.about-text p { max-width: 60ch; color: var(--ink-2); margin: 0 0 16px; }
+.about .lede { font-family: var(--display); font-variation-settings: "wdth" 108; font-size: var(--step-2); line-height: 1.2; color: var(--ink); font-weight: 600; text-wrap: balance; margin-bottom: 24px; }
+.about-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+
+/* filters */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.filters button {
+  font: 500 var(--step--1)/1 var(--mono); letter-spacing: 0.05em; text-transform: uppercase;
+  background: var(--paper); color: var(--ink); border: 1px solid var(--ink); border-radius: 0;
+  padding: 9px 12px; cursor: pointer;
+}
+.filters button:hover { background: var(--hatch); }
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+
+/* ---------- project sheets ---------- */
+.sheet { padding-block: 56px 64px; border-top: 1px solid var(--ink); }
+.sheet:first-of-type { padding-top: 48px; }
+.sheet-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; margin-bottom: 14px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid var(--rule); padding: 3px 7px; color: var(--ink-2); }
+.sheet h3 { font-size: clamp(1.9rem, 3.6vw, 2.6rem); font-weight: 650; letter-spacing: -0.01em; max-width: 22ch; margin-bottom: 26px; line-height: 1.08; }
+.sheet h3 small { display: table; font-family: var(--mono); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 16px; padding: 6px 10px 5px; color: #fff; background: var(--pc, var(--ink)); font-variation-settings: normal; line-height: 1.2; }
+#sailing { --pc: #b394ec; }
+#sailing h3 small { color: #1a1033; }
+#descent { --pc: #7b2fbf; }
+#alpha-ii { --pc: #2d2aa8; }
+#alpha { --pc: #2d2aa8; }
+#nexus { --pc: #137f93; }
+
+figure { margin: 0; min-width: 0; }
+.frame { position: relative; border: 1px solid var(--ink); background: var(--paper); overflow: hidden; aspect-ratio: var(--ar, 3 / 2); max-width: 100%; }
+.frame img, .frame video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.frame video { background: var(--ink); }
+.frame.dia img { object-fit: contain; padding: 14px; }
+figcaption.cap { margin-top: 8px; font-size: 0.88rem; line-height: 1.45; color: var(--ink-2); }
+figcaption.cap .mono { color: var(--ink); margin-right: 8px; }
+.credit { color: var(--note); }
+
+.figs { display: grid; gap: 22px 18px; margin-top: 34px; }
+.g2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.g3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.g21 { grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); }
+
+.specs.c3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.specs.c3 div:nth-child(3) { padding-left: 16px; border-left: 1px solid var(--rule); border-top: 0; }
+
+/* image placeholder */
+.ph { background: repeating-linear-gradient(135deg, transparent 0 9px, rgba(10,10,11,0.045) 9px 10px), var(--hatch); display: grid; place-items: center; text-align: center; padding: 20px; }
+.ph .slot { max-width: 34ch; }
+.ph .slot b { display: block; font-family: var(--mono); font-weight: 500; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--note); margin-bottom: 6px; }
+.ph .slot span { font-size: 0.95rem; color: var(--ink-2); }
+
+/* key-figures strip */
+.specs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 26px 0 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--rule); }
+.specs div { padding: 12px 16px 14px 0; min-width: 0; }
+.specs div + div { padding-left: 16px; border-left: 1px solid var(--rule); }
+.specs dt { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--note); }
+.specs dd { margin: 4px 0 0; font-family: var(--display); font-variation-settings: "wdth" 105; font-size: 1.35rem; font-weight: 600; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.specs dd small { display: block; font-family: var(--body); font-size: 0.85rem; font-weight: 400; color: var(--ink-2); margin-top: 2px; }
+
+.body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 300px); gap: 32px 64px; margin-top: 34px; }
+.body > * { min-width: 0; }
+.outcome { font-size: var(--step-1); line-height: 1.45; margin: 0 0 22px; max-width: 60ch; }
+.block + .block { margin-top: 26px; }
+.block p { margin: 0; max-width: 75ch; color: var(--ink-2); }
+.block p + p { margin-top: 10px; }
+.skills { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.skills li { display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 8px; color: var(--ink-2); }
+.skills li::before { content: ""; width: 7px; height: 7px; border: 1px solid var(--ink); margin-top: 0.62em; }
+.todo { font-family: var(--mono); font-size: 0.82rem; color: var(--ink); background: var(--hatch); border: 1px dashed var(--note); padding: 1px 6px; }
+
+/* data tables */
+.tablewrap { overflow-x: auto; margin-top: 34px; }
+table.data { width: 100%; border-collapse: collapse; font-size: 0.95rem; min-width: 520px; }
+table.data caption { text-align: left; font-size: 0.88rem; color: var(--ink-2); caption-side: bottom; padding-top: 8px; }
+table.data caption .mono { color: var(--ink); margin-right: 8px; }
+table.data th { font-family: var(--mono); font-weight: 500; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--note); text-align: left; padding: 8px 12px 8px 0; border-bottom: 1px solid var(--ink); }
+table.data td { padding: 10px 12px 10px 0; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+table.data td:first-child { font-family: var(--mono); color: var(--ink); white-space: nowrap; }
+.st { display: inline-flex; align-items: center; gap: 7px; color: var(--ink); white-space: nowrap; }
+.st::before { content: ""; width: 9px; height: 9px; border: 1px solid var(--ink); }
+.st.ok::before { background: var(--ink); }
+
+/* milestone line */
+.milestones { list-style: none; margin: 34px 0 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+.milestones li { position: relative; padding: 18px 10px 0 0; min-width: 0; }
+.milestones li::before { content: ""; position: absolute; top: -5px; left: 0; width: 9px; height: 9px; background: var(--paper); border: 1px solid var(--ink); }
+.milestones li.done::before { background: var(--ink); }
+.milestones b { display: block; font-family: var(--display); font-variation-settings: "wdth" 110; font-size: 1.2rem; }
+.milestones span { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.04em; color: var(--ink-2); }
+.milestones .now { position: absolute; top: -26px; left: -6px; font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.1em; color: var(--note); }
+
+details.tech { margin-top: 38px; border: 1px solid var(--ink); background: var(--paper); }
+details.tech summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 18px; background: var(--hatch); font-family: var(--mono); font-size: 0.9rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+details.tech summary::-webkit-details-marker { display: none; }
+details.tech summary::before { content: ""; width: 10px; height: 10px; background: var(--ink); flex: none; }
+details.tech summary::after { content: "Show +"; margin-left: auto; font-size: 0.78rem; border: 1px solid var(--ink); padding: 6px 10px; background: var(--paper); }
+details.tech summary:hover { background: var(--ink); color: var(--paper); }
+details.tech summary:hover::before { background: var(--paper); }
+details.tech summary:hover::after { color: var(--ink); }
+details.tech[open] summary { border-bottom: 1px solid var(--ink); }
+details.tech[open] summary::after { content: "Hide –"; }
+details.tech .inner { padding: 18px; color: var(--ink-2); }
+details.tech ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; max-width: 72ch; }
+details.tech .tablewrap { margin-top: 18px; }
+
+/* more work */
+.more { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0 40px; border-top: 1px solid var(--ink); margin-top: 8px; }
+.more h4 { font-family: var(--mono); font-weight: 500; font-size: var(--step--1); letter-spacing: 0.08em; text-transform: uppercase; margin: 28px 0 0; color: var(--note); grid-column: 1 / -1; }
+.mitem { padding: 18px 0; border-bottom: 1px solid var(--rule); min-width: 0; }
+.mitem strong { font-family: var(--display); font-variation-settings: "wdth" 110; font-size: 1.15rem; display: block; }
+.mitem p { margin: 4px 0 0; color: var(--ink-2); font-size: 0.97rem; }
+
+/* publications */
+.pubs { list-style: none; margin: 0; padding: 0; }
+.pub { display: grid; grid-template-columns: 90px minmax(0, 1fr) auto; gap: 8px 28px; padding: 22px 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
+.pub:first-child { border-top: 1px solid var(--ink); }
+.pub .yr { font-family: var(--mono); font-size: 0.95rem; }
+.pub .t { font-family: var(--display); font-variation-settings: "wdth" 105; font-size: var(--step-1); font-weight: 600; line-height: 1.25; min-width: 0; }
+.pub .v { display: block; color: var(--ink-2); font-size: 0.95rem; margin-top: 6px; font-family: var(--body); font-weight: 400; }
+.pub .role { display: inline-block; font-family: var(--mono); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--ink); padding: 2px 6px; margin-top: 10px; }
+.pub .role.first { background: var(--ink); color: var(--paper); }
+.pub .lnk { font-family: var(--mono); font-size: var(--step--1); text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+
+/* experience */
+.exp { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 32px 56px; }
+.exp > * { min-width: 0; }
+.org { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 90px); align-self: start; }
+.org h3 { font-size: var(--step-2); font-weight: 650; }
+.org p { color: var(--ink-2); margin: 12px 0 0; max-width: 34ch; }
+.roles { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--ink); }
+.role { position: relative; padding: 0 0 34px 28px; }
+.role:last-child { padding-bottom: 0; }
+.role::before { content: ""; position: absolute; left: -5px; top: 0.45em; width: 9px; height: 9px; background: var(--paper); border: 1px solid var(--ink); }
+.role:first-child::before { background: var(--ink); }
+.role .when { font-family: var(--mono); font-size: var(--step--1); letter-spacing: 0.05em; color: var(--note); text-transform: uppercase; }
+.role h4 { font-family: var(--display); font-variation-settings: "wdth" 108; font-size: 1.3rem; margin: 4px 0 2px; font-weight: 650; }
+.role .unit { color: var(--ink-2); font-size: 0.95rem; margin: 0 0 10px; }
+.role ul { margin: 0; padding-left: 1.1em; color: var(--ink-2); display: grid; gap: 6px; max-width: 62ch; }
+
+/* skills + honors */
+.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px 56px; }
+.two > * { min-width: 0; }
+.kit { display: grid; grid-template-columns: 130px minmax(0, 1fr); margin: 0; }
+.kit dt, .kit dd { padding: 12px 0; border-bottom: 1px solid var(--rule); margin: 0; }
+.kit dt { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--note); padding-top: 15px; }
+.hon { list-style: none; margin: 0; padding: 0; }
+.hon li { padding: 14px 0; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 4px 16px; }
+.hon .yrs { font-family: var(--mono); font-size: 0.78rem; color: var(--note); padding-top: 3px; font-variant-numeric: tabular-nums; }
+.hon strong { display: block; }
+.hon span.d { color: var(--ink-2); font-size: 0.95rem; }
+
+/* contact */
+.contact h2 { font-size: var(--step-3); font-weight: 700; font-variation-settings: "wdth" 118; letter-spacing: -0.02em; }
+.contact .row { display: flex; flex-wrap: wrap; gap: 16px 40px; margin-top: 32px; align-items: center; }
+.email { font-family: var(--mono); font-size: clamp(1rem, 2.6vw, 1.5rem); user-select: all; word-break: break-all; }
+.btn { font: 500 var(--step--1)/1 var(--mono); letter-spacing: 0.05em; text-transform: uppercase; background: var(--ink); color: var(--paper); border: 1px solid var(--ink); padding: 11px 14px; cursor: pointer; text-decoration: none; border-radius: 0; display: inline-block; }
+.btn.ghost { background: var(--paper); color: var(--ink); }
+.btn:hover { opacity: 0.85; }
+
+/* footer */
+.foot { border-top: 1px solid var(--ink); }
+.foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-block: 22px 30px; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--note); }
+.foot a { color: var(--ink); text-decoration: none; }
+.foot a:hover { text-decoration: underline; }
+
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); padding-block: 40px; }
+  .hero-photo { max-width: 340px; }
+  .body, .exp, .two, .more, .about, .g21 { grid-template-columns: minmax(0, 1fr); }
+  .org { position: static; }
+  .g3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .g3 > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .specs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .specs div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .specs div:nth-child(n+3) { border-top: 1px solid var(--rule); }
+  .milestones { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 28px; }
+  .pub { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+}
+@media (max-width: 520px) {
+  .facts, .g2, .g3 { grid-template-columns: minmax(0, 1fr); }
+  .g3 > :last-child:nth-child(odd) { grid-column: auto; }
+  .kit { grid-template-columns: minmax(0, 1fr); }
+  .kit dt { border-bottom: 0; padding-bottom: 0; }
+  .hon li { grid-template-columns: minmax(0, 1fr); }
+}
+
+
+/* work views */
+.index { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+.index li { border-bottom: 1px solid var(--rule); }
+.idx { display: grid; grid-template-columns: 112px 44px minmax(0, 1fr) minmax(0, 220px) 24px; gap: 4px 20px; align-items: center; padding: 14px 0; text-decoration: none; }
+.idx:hover .it b, .idx:focus-visible .it b { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.idx .thumb { display: block; aspect-ratio: 4 / 3; border: 1px solid var(--ink); overflow: hidden; background: var(--paper); }
+.idx .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.idx .thumb.dia img { object-fit: contain; padding: 4px; }
+.idx .no { font-family: var(--mono); font-size: 0.85rem; color: var(--note); }
+.idx .it { min-width: 0; }
+.idx .it b { display: block; font-family: var(--display); font-variation-settings: "wdth" 108; font-size: 1.25rem; font-weight: 650; line-height: 1.2; text-wrap: balance; }
+.idx .it span { display: block; color: var(--ink-2); font-size: 0.93rem; margin-top: 3px; }
+.idx .meta { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; color: var(--note); text-transform: uppercase; }
+.idx .go { font-size: 1.1rem; text-align: right; }
+.filters button[aria-selected="true"], .chips button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+.chips button { font: 500 var(--step--1)/1 var(--mono); letter-spacing: 0.05em; text-transform: uppercase; background: var(--paper); color: var(--ink); border: 1px solid var(--ink); border-radius: 0; padding: 9px 12px; cursor: pointer; }
+.chips button:hover { background: var(--hatch); }
+.chips button[aria-pressed="true"]:hover { background: var(--ink); }
+.chips .ct { opacity: 0.6; margin-left: 4px; }
+.syn-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 24px; align-items: baseline; padding: 13px 0; border-bottom: 1px solid var(--rule); }
+.syn-row .d { color: var(--ink); max-width: 72ch; }
+.syn-src { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; }
+.view + .sheet, .view ~ .sheet:first-of-type { }
+#view-projects, #view-skills { margin-bottom: 40px; }
+@media (max-width: 860px) {
+  .idx { grid-template-columns: 96px minmax(0, 1fr); }
+  .idx .no, .idx .go { display: none; }
+  .idx .meta { grid-column: 2; }
+  .idx .thumb { grid-row: span 2; }
+}
+@media (max-width: 520px) {
+  .syn-row { grid-template-columns: minmax(0, 1fr); }
+}
+
+
+/* NRL section */
+.nrl-lede { font-size: var(--step-1); line-height: 1.45; max-width: 46ch; margin: -8px 0 0; }
+.nrl-specs { margin-top: 30px; }
+.nrl-intro { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 32px 56px; align-items: start; }
+.nrl-intro > * { min-width: 0; }
+.nrl-intro .specs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.nrl-intro .specs div:nth-child(3) { padding-left: 0; border-left: 0; }
+.nrl-intro .specs div:nth-child(n+3) { border-top: 1px solid var(--rule); }
+.nrl-photo { max-width: 420px; justify-self: end; width: 100%; }
+.tl-wrap { overflow-x: auto; margin-top: 40px; padding-bottom: 6px; }
+.tl { min-width: 680px; }
+.tl-years { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; color: var(--note); }
+.tl-years span { border-left: 1px solid var(--rule); padding: 0 0 8px 6px; }
+.tl-track { position: relative; height: 92px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--rule); background: repeating-linear-gradient(90deg, transparent 0 calc(100% / 9 - 1px), var(--rule) calc(100% / 9 - 1px) calc(100% / 9)); }
+.tl-bar { position: absolute; top: 16px; height: 30px; left: calc(var(--s) / 9 * 100%); width: calc((var(--e) - var(--s)) / 9 * 100%); background: var(--ink); color: var(--paper); font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.04em; text-transform: uppercase; display: flex; align-items: center; padding: 0 6px; white-space: nowrap; overflow: visible; }
+.tl-bar.sum { padding: 0; }
+.tl-bar.sum i { position: absolute; top: 38px; left: 50%; transform: translateX(-50%); font-style: normal; color: var(--ink); white-space: nowrap; }
+.tl-bar.ft { background: repeating-linear-gradient(135deg, var(--paper) 0 6px, var(--hatch) 6px 12px); color: var(--ink); border: 1px solid var(--ink); }
+.tl-mark { position: absolute; top: 0; bottom: 0; left: calc(var(--s) / 9 * 100%); border-left: 1px dashed var(--ink); }
+.tl-mark b { position: absolute; bottom: 8px; left: 6px; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; font-weight: 500; }
+.nrl-roles { list-style: none; margin: 48px 0 0; padding: 0; border-top: 1px solid var(--ink); }
+.nrl-role { display: grid; grid-template-columns: minmax(0, 230px) minmax(0, 1fr); gap: 16px 48px; padding: 32px 0; border-bottom: 1px solid var(--rule); }
+.nrl-side { display: flex; flex-direction: column; gap: 6px; }
+.nrl-code { font-family: var(--display); font-variation-settings: "wdth" 120; font-weight: 700; font-size: 2.4rem; line-height: 1; letter-spacing: -0.01em; }
+.nrl-when { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; }
+.nrl-kind { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--note); }
+.nrl-main { min-width: 0; }
+.nrl-main h3 { font-size: var(--step-1); font-weight: 650; max-width: 30ch; margin-bottom: 12px; line-height: 1.2; }
+.nrl-proj { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 260px); gap: 18px 32px; align-items: start; }
+.nrl-proj + .nrl-proj { margin-top: 30px; padding-top: 30px; border-top: 1px dashed var(--rule); }
+.nrl-proj .nrl-fig { margin: 0; }
+.nrl-prog { font-weight: 600; margin-top: 6px; }
+.nrl-count { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-2); margin-top: 6px; }
+.nrl-unit { color: var(--ink-2); margin: 8px 0 16px; }
+.nrl-main .skills { max-width: 66ch; }
+.nrl-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+@media (max-width: 860px) {
+  .nrl-role { grid-template-columns: minmax(0, 1fr); }
+  .nrl-intro { grid-template-columns: minmax(0, 1fr); }
+  .nrl-photo { justify-self: start; max-width: 360px; }
+  .nrl-side { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; }
+  .nrl-code { font-size: 1.8rem; }
+  .nrl-proj { grid-template-columns: minmax(0, 1fr); }
+  .nrl-fig { max-width: 360px; }
+}
+
+.nrl-fig { margin: 14px 0 0; border: 1px solid var(--rule); padding: 10px 10px 8px; background: var(--paper); max-width: 320px; }
+.nrl-fig svg { display: block; width: 100%; height: auto; }
+.nrl-fig .k { stroke: #1b2f5c; stroke-width: 1.1; fill: none; }
+.nrl-fig .k.f { fill: #e4eaf5; }
+.nrl-fig .k.w { fill: #ffffff; }
+.nrl-fig .k.hatchf { fill: url(#nrl-hatch); }
+.nrl-fig .k.dash { stroke-dasharray: 4 3; }
+.nrl-fig .acc { stroke: #d4a017; stroke-width: 2; }
+.nrl-fig .acc.fillacc { fill: #f6d77a; stroke: #b38708; stroke-width: 1.1; }
+.nrl-fig .hot { stroke: #c8372d; stroke-width: 1.6; }
+.nrl-fig text { font-family: var(--mono); font-size: 8px; letter-spacing: 0.06em; fill: #1b2f5c; }
+.nrl-fig text.n { fill: #6b7480; }
+.nrl-fig figcaption { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--note); margin-top: 6px; }
+.tl-mark.now b { top: 2px; bottom: auto; }
+.flogo { display: block; height: 96px; width: 100%; margin-top: auto; padding-top: 16px; box-sizing: content-box; object-fit: contain; object-position: center; }
+.flogo-row { display: flex; flex-wrap: nowrap; justify-content: center; align-items: center; gap: 12px; margin-top: auto; padding-top: 16px; height: 96px; box-sizing: content-box; width: 100%; }
+.flogo-row img { display: block; height: 88px; width: auto; min-width: 0; flex: 0 1 auto; object-fit: contain; }
+.flogo-row img + img { height: 82px; }
+.flogo.ssds { height: 70px; padding-top: 29px; padding-bottom: 13px; }
+.badgecol { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; flex: none; }
+.badge.nexus { width: 220px; }
+.badge.descent { width: 104px; }
+.sitelink { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; }
+.sheet-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+.sheet-head h3 { min-width: 0; }
+.badge { width: 160px; height: auto; flex: none; }
+@media (max-width: 520px) { .badge { width: 96px; } .badge.nexus { width: 130px; } .badge.descent { width: 70px; } }
+
+/* project mosaics: justified rows, nothing cropped */
+.mosaic { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 4px; }
+.mfill { flex: 10 1 0; height: 0; }
+.tile { position: relative; margin: 0; overflow: hidden; border: 1px solid var(--rule); background: var(--paper); cursor: zoom-in; min-width: 0; max-width: 100%; }
+.tile.lead { border-color: var(--ink); max-height: 640px; }
+.tile .frame { position: absolute; inset: 0; border: 0; aspect-ratio: auto !important; height: 100%; }
+.tile .frame img, .tile .frame video { width: 100%; height: 100%; object-fit: contain; display: block; background: var(--paper); }
+.tile .frame video { background: var(--ink); }
+.tile.dia .frame img { padding: 8px; }
+.tile figcaption.cap { position: absolute; left: 0; right: 0; bottom: 0; margin: 0; padding: 10px 12px; background: var(--ink); color: var(--paper); font-size: 0.82rem; line-height: 1.4; transform: translateY(101%); transition: transform .2s ease; }
+.tile figcaption.cap .mono, .tile figcaption.cap .credit { color: var(--paper); opacity: 0.75; }
+.tile:hover figcaption.cap, .tile:focus-visible figcaption.cap { transform: none; }
+.tile .play { position: absolute; top: 8px; left: 8px; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 4px 7px; }
+@media (prefers-reduced-motion: reduce) { .tile figcaption.cap { transition: none; } }
+@media (max-width: 520px) { .tile:not(.lead) { flex-basis: 40%; } }
+
+/* lightbox */
+.lb { position: fixed; inset: 0; z-index: 40; background: rgba(10,10,11,0.94); display: grid; grid-template-rows: minmax(0, 1fr) auto; padding: calc(16px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) calc(16px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); gap: 12px; }
+.lb-media { min-height: 0; display: flex; align-items: center; justify-content: center; }
+.lb-media img, .lb-media video { max-width: 100%; max-height: 100%; object-fit: contain; background: #fff; }
+.lb-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; color: #fff; max-width: 1100px; width: 100%; margin: 0 auto; }
+.lb-cap { flex: 1 1 320px; font-size: 0.92rem; line-height: 1.45; min-width: 0; }
+.lb-cap .mono { margin-right: 8px; }
+.lb-cap .credit { color: #b9bec5; }
+.lb-bar button { font: 500 0.85rem/1 var(--mono); letter-spacing: 0.05em; text-transform: uppercase; background: transparent; color: #fff; border: 1px solid #fff; padding: 9px 12px; cursor: pointer; border-radius: 0; }
+.lb-bar button:hover { background: #fff; color: #0a0a0b; }
+.lb-count { font-family: var(--mono); font-size: 0.75rem; color: #b9bec5; }
+/* return link */
+.backrow { margin-top: 28px; display: flex; justify-content: flex-end; }
+.back { font-family: var(--mono); font-size: var(--step--1); letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--ink); padding: 9px 12px; }
+.back:hover { background: var(--ink); color: var(--paper); }
+
+/* back to top */
+.totop { position: fixed; z-index: 29; right: calc(16px + env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); font: 500 var(--step--1)/1 var(--mono); letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; background: var(--ink); color: var(--paper); border: 1px solid var(--ink); padding: 11px 14px; opacity: 0; pointer-events: none; transition: opacity .2s; }
+.totop.show { opacity: 1; pointer-events: auto; }
+.totop:hover { background: var(--paper); color: var(--ink); }
+
+</style>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Claire W. Kim","jobTitle":"Mechanical Engineering Student","affiliation":"Cornell University","email":"mailto:cwk66@cornell.edu","sameAs":["https://www.linkedin.com/in/claire-kim-3a2a26258/"]}</script>
+</head>
+<body>
+<header class="top">
+<div class="wrap">
+<a class="mark" href="#top">C. KIM</a>
+<nav aria-label="Sections">
+<a href="#about">About</a>
+<a href="#work">Work</a>
+<a href="#experience">NRL</a>
+<a href="#publications">Publications</a>
+<a href="#skills">Skills</a>
+<a href="#contact">Contact</a>
+</nav>
+</div>
+</header>
+<main id="top">
+<!-- ================= HERO ================= -->
+<section class="hero">
+<div class="wrap">
+<div>
+<h1>Claire W.<span>Kim</span></h1>
+<p class="thesis">Mechanical engineer focused on spacecraft mechanisms, from light sail deployers released aboard the ISS to ChipSat deployers ejected at rocket apogee.</p>
+<dl class="facts">
+<div><dt>Study</dt><dd>B.S. Mechanical Eng., Cornell ’28</dd><img alt="Cornell University seal" class="flogo seal" src="fig/logo-cornell-seal.png"/></div>
+<div><dt>Lab</dt><dd>Space Systems Design Studio</dd><img alt="Space Systems Design Studio logo" class="flogo ssds" src="fig/logo-ssds.png"/></div>
+<div><dt>Scholarship</dt><dd>DoD SMART Scholar, NRL</dd><div class="flogo-row"><img alt="DoD SMART Scholarship logo" src="fig/logo-smart.png"/><img alt="U.S. Naval Research Laboratory logo" src="fig/logo-nrl.png"/></div></div>
+</dl>
+</div>
+<figure class="portrait hero-photo">
+<img alt="Portrait of Claire Kim" height="900" src="headshot.jpg" width="720"/>
+<figcaption><span class="mono">C. Kim</span><span class="mono note">Ithaca, NY</span></figcaption>
+</figure>
+</div>
+</section>
+<!-- ================= ABOUT ================= -->
+<section class="section" id="about">
+<div class="wrap about">
+<div><p class="label">About</p><p class="lede">Mechanical engineering student at Cornell, working on deployment mechanisms for small spacecraft.</p></div>
+<div class="about-text">
+<p>At Cornell’s Space Systems Design Studio I design, build and test deployers for light sails and ChipSats. I helped build the flight hardware for Sailing to the Stars, which released six light sails on the ISS in 2025, and I lead mission development for Alpha II, the lab’s next light sail CubeSat.</p>
+<p>I’ve interned at the U.S. Naval Research Laboratory for four summers, on spacecraft mechanisms, hypersonic test instrumentation and a student CubeSat. I’m a DoD SMART Scholar and will join NRL full-time after graduating in 2028, and I plan to go to graduate school after that.</p>
+<div class="about-links">
+<a class="btn" href="https://www.linkedin.com/in/claire-kim-3a2a26258/" rel="noopener" target="_blank">LinkedIn ↗</a>
+<a class="btn ghost" href="#publications">Read the papers</a>
+<a class="btn ghost" download="Claire_Kim_Resume.pdf" href="fig/Claire_Kim_Resume.pdf">Download résumé ↓</a>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= WORK ================= -->
+<section class="section" id="work">
+<div class="wrap">
+<div class="shead">
+<h2>Selected work</h2>
+<div aria-label="Choose a view" class="filters" role="tablist">
+<button aria-controls="view-projects" aria-selected="true" id="tab-projects" role="tab" type="button">Projects</button>
+<button aria-controls="view-skills" aria-selected="false" id="tab-skills" role="tab" type="button">By skill</button>
+</div>
+</div>
+<div aria-labelledby="tab-projects" class="view" id="view-projects" role="tabpanel">
+<ol class="index">
+<li><a class="idx" href="#sailing"><span class="thumb"><img alt="" loading="lazy" src="fig/s1-hero.jpg"/></span><span class="no">01</span><span class="it"><b>Light sails released by hand aboard the ISS</b><span>ISS flight hardware, 6 deployments, first-author paper</span></span><span class="meta">Sailing to the Stars · Sep 2024 – Sep 2025</span><span aria-hidden="true" class="go">↓</span></a></li>
+<li><a class="idx" href="#descent"><span class="thumb"><img alt="" loading="lazy" src="fig/s2-rail.jpg"/></span><span class="no">02</span><span class="it"><b>Releasing five ChipSats at rocket apogee</b><span>Spring-driven two-stage deployer for the ASCENT rocket</span></span><span class="meta">DeSCENT · Jan 2026 – Present</span><span aria-hidden="true" class="go">↓</span></a></li>
+<li><a class="idx" href="#alpha-ii"><span class="thumb"><img alt="" loading="lazy" src="fig/s3-present.jpg"/></span><span class="no">03</span><span class="it"><b>Leading a light sail mission from concept review to design</b><span>Mission lead, 9-person team, attached-sail CubeSat</span></span><span class="meta">Alpha II · Jan 2026 – Present</span><span aria-hidden="true" class="go">↓</span></a></li>
+<li><a class="idx" href="#alpha"><span class="thumb dia"><img alt="" loading="lazy" src="fig/s4-bus.jpg"/></span><span class="no">04</span><span class="it"><b>Integrating and cold-testing a light sail CubeSat for near-space</b><span>Mechanical and electrical integration, thermal testing</span></span><span class="meta">Alpha CubeSat balloon launch · Sep – Dec 2025</span><span aria-hidden="true" class="go">↓</span></a></li>
+<li><a class="idx" href="#nexus"><span class="thumb"><img alt="" loading="lazy" src="fig/s5-before.jpg"/></span><span class="no">05</span><span class="it"><b>Securing a loose drivetrain and driving a feeder from both sides</b><span>Drivetrain fix, dual-drive vibration feeder</span></span><span class="meta">Cornell Nexus · Sep 2025 – May 2026</span><span aria-hidden="true" class="go">↓</span></a></li>
+</ol>
+</div>
+<div aria-labelledby="tab-skills" class="view" hidden="" id="view-skills" role="tabpanel">
+<div aria-label="Skill" class="chips" role="group">
+<button aria-pressed="true" data-g="mech" type="button">Mechanisms <span class="ct">8</span></button>
+<button aria-pressed="false" data-g="space" type="button">Spacecraft systems <span class="ct">5</span></button>
+<button aria-pressed="false" data-g="test" type="button">Test &amp; validation <span class="ct">7</span></button>
+<button aria-pressed="false" data-g="lead" type="button">Leadership <span class="ct">5</span></button>
+</div>
+<div class="syn" data-g="mech">
+<p class="label">Mechanisms · across all projects</p>
+<div class="syn-row"><span class="d">Redesigned the burn-wire filament actuator so the release line always contacts the heated wire and severs reliably.</span><a class="syn-src" href="#sailing">Sailing to the Stars ↓</a></div>
+<div class="syn-row"><span class="d">Designed a passive two-stage deployer that springs five ChipSats free at rocket apogee, with springs sized for a 2–4 m/s exit velocity.</span><a class="syn-src" href="#descent">DeSCENT ↓</a></div>
+<div class="syn-row"><span class="d">Developing an active-release mechanism to scale the ChipSat deployer to 10–20 ChipSats.</span><a class="syn-src" href="#descent">DeSCENT ↓</a></div>
+<div class="syn-row"><span class="d">Researching concepts for keeping a 575 mm light sail tethered to its CubeSat after deployment.</span><a class="syn-src" href="#alpha-ii">Alpha II ↓</a></div>
+<div class="syn-row"><span class="d">Modified and reprinted a door latch through four revisions until it held the sail compartment shut and still released cleanly.</span><a class="syn-src" href="#alpha">Balloon launch ↓</a></div>
+<div class="syn-row"><span class="d">Reworked a crank-slider vibration feeder to run from both ends, with a new clamping eccentric disk.</span><a class="syn-src" href="#nexus">Nexus ↓</a></div>
+<div class="syn-row"><span class="d">Moved front-wheel load off loosening shaft couplers onto a secure plate.</span><a class="syn-src" href="#nexus">Nexus ↓</a></div>
+<div class="syn-row"><span class="d">Generated mechanism concepts for hypersonic flight vehicle control surfaces at NRL.</span><a class="syn-src" href="#experience">NRL ↓</a></div>
+</div>
+<div class="syn" data-g="space" hidden="">
+<p class="label">Spacecraft systems · across all projects</p>
+<div class="syn-row"><span class="d">Owned the avionics section CAD and its interface to the sail payload for hardware flown on the ISS.</span><a class="syn-src" href="#sailing">Sailing to the Stars ↓</a></div>
+<div class="syn-row"><span class="d">Built Miura-folded, nitinol-framed flight sails and helped produce 8 payload sections and 3 avionics cubes.</span><a class="syn-src" href="#sailing">Sailing to the Stars ↓</a></div>
+<div class="syn-row"><span class="d">Wrote the mission statement, objectives, CONOPS and requirements for a 1U light sail CubeSat.</span><a class="syn-src" href="#alpha-ii">Alpha II ↓</a></div>
+<div class="syn-row"><span class="d">Integrated the Alpha CubeSat’s mechanical and electrical systems for a near-space balloon flight and verified all 7 sensors.</span><a class="syn-src" href="#alpha">Balloon launch ↓</a></div>
+<div class="syn-row"><span class="d">Designed deployable solar arrays and antennas for a 3U CubeSat with an RF payload.</span><a class="syn-src" href="#experience">NRL ↓</a></div>
+</div>
+<div class="syn" data-g="test" hidden="">
+<p class="label">Test &amp; validation · across all projects</p>
+<div class="syn-row"><span class="d">Ran engineering-unit verification before flight review: pin removal, separation, pin shear (factor of safety 10) and launch vibration.</span><a class="syn-src" href="#sailing">Sailing to the Stars ↓</a></div>
+<div class="syn-row"><span class="d">Co-authored the analysis of all six ISS deployments, which showed the Double-Door deployer was more stable.</span><a class="syn-src" href="#sailing">Sailing to the Stars ↓</a></div>
+<div class="syn-row"><span class="d">Tested deployer builds with different spring counts to confirm exit velocity and door friction.</span><a class="syn-src" href="#descent">DeSCENT ↓</a></div>
+<div class="syn-row"><span class="d">Ran thermal tests that showed a cold sail would not unfurl, then revised the insulation twice.</span><a class="syn-src" href="#alpha">Balloon launch ↓</a></div>
+<div class="syn-row"><span class="d">Ran ground deployment tests of the attached-sail concept.</span><a class="syn-src" href="#alpha-ii">Alpha II ↓</a></div>
+<div class="syn-row"><span class="d">Wrote test procedures, ran validation testing and performed error analysis on a custom encoder housing.</span><a class="syn-src" href="#experience">NRL ↓</a></div>
+<div class="syn-row"><span class="d">Diagnosed anomalies in hypersonic test instrumentation and data acquisition.</span><a class="syn-src" href="#experience">NRL ↓</a></div>
+</div>
+<div class="syn" data-g="lead" hidden="">
+<p class="label">Leadership · across all projects</p>
+<div class="syn-row"><span class="d">Mission Lead and Mechanical Lead for a nine-person team; presented the Mission Concept Review.</span><a class="syn-src" href="#alpha-ii">Alpha II ↓</a></div>
+<div class="syn-row"><span class="d">First author of the Sailing to the Stars mechanical design paper (ISSS 2025).</span><a class="syn-src" href="#publications">Publications ↓</a></div>
+<div class="syn-row"><span class="d">Led production of the filament actuators for every flight unit.</span><a class="syn-src" href="#sailing">Sailing to the Stars ↓</a></div>
+<div class="syn-row"><span class="d">Mechanical lead of a seven-person student CubeSat team.</span><a class="syn-src" href="#experience">NRL ↓</a></div>
+<div class="syn-row"><span class="d">Completed Cornell engineering leadership training: Selander Center badges in Core Values and Followership, and ENGRG 4835 on receiving feedback.</span><a class="syn-src" href="#skills">Honors ↓</a></div>
+</div>
+</div>
+<!-- ===== SHEET 1: SAILING TO THE STARS ===== -->
+<article class="sheet" data-tags="mech space test" id="sailing">
+<div class="sheet-meta">
+<span class="mono">Sep 2024 – Sep 2025</span>
+<div class="tags"><span class="tag">Mechanisms</span><span class="tag">Spacecraft</span><span class="tag">Test &amp; validation</span></div>
+</div>
+<div class="sheet-head"><h3><small>Sailing to the Stars · Cornell SSDS</small>Light sails released by hand aboard the ISS</h3><img alt="Sailing to the Stars mission patch" class="badge" src="fig/logo-sts.png"/></div><div class="mosaic"><figure class="tile lead" style="flex: 1 1 100%; aspect-ratio: 1.600;" tabindex="0">
+<div class="frame"><img alt="Deployer and unfolded light sail floating in front of the ISS Cupola windows with Earth below" loading="lazy" src="fig/s1-hero.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 1.1</span>Flight deployer and released sail inside the ISS Cupola, August 2025. <span class="credit">Image: NASA / Rhodium Scientific</span></figcaption>
+</figure><figure class="tile dia" style="flex: 1.368 1 260px; aspect-ratio: 1.368; max-width: min(100%, 342px);" tabindex="0">
+<div class="frame dia"><img alt="Exploded CAD of the avionics section: PCB holder, hard drive, PCB, outer shell" loading="lazy" src="fig/s1-avionics.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 1.2</span>Avionics section I owned in CAD. Repositioning the asymmetric bumps on the PCB holder removed all rattle at the payload interface.</figcaption>
+</figure><figure class="tile" style="flex: 0.750 1 142px; aspect-ratio: 0.750; max-width: min(100%, 188px);" tabindex="0">
+<div class="frame"><img alt="Flight light sail laid flat with tape and nitinol wire in an X pattern" loading="lazy" src="fig/s1-sail.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 1.3</span>Flight sail prepared for epoxy, with nitinol wire threaded in an X and abraded corners for bonding. Each sail is Miura-folded to stow in the deployer.</figcaption>
+</figure><figure class="tile" style="flex: 1.333 1 253px; aspect-ratio: 1.333; max-width: min(100%, 333px);" tabindex="0">
+<div class="frame"><img alt="Completed purple and black deployer flight units laid out on a lab bench" loading="lazy" src="fig/s1-units.jpg?v=2"/></div>
+<figcaption class="cap"><span class="mono">Fig. 1.4</span>Completed flight units and backups before shipping.</figcaption>
+</figure><figure class="tile" style="flex: 1.363 1 259px; aspect-ratio: 1.363; max-width: min(100%, 341px);" tabindex="0">
+<div class="frame"><img alt="Deployer floating in an ISS module with spin and deployment axes drawn on it" loading="lazy" src="fig/s1-iss.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 1.5</span>Deployer spinning about its deployment axis after release on the ISS. <span class="credit">Image: NASA</span></figcaption>
+</figure><figure class="tile dia" style="flex: 1.265 1 240px; aspect-ratio: 1.265; max-width: min(100%, 316px);" tabindex="0">
+<div class="frame dia"><img alt="Six plots of gyroscope angular rate against time for the six deployments" loading="lazy" src="fig/s1-imu.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 1.6</span>IMU angular rate for Single-Door runs (a–c) and Double-Door runs (d–f). Mean absolute rate about x: 0.32–1.26 rad/s Single-Door, 0.26–0.56 rad/s Double-Door.</figcaption>
+</figure><figure class="tile" style="flex: 1.501 1 285px; aspect-ratio: 1.501; max-width: min(100%, 375px);" tabindex="0">
+<div class="frame"><img alt="Three team members preparing a purple Double-Door engineering unit at a lab bench" loading="lazy" src="fig/s1-tying2.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 1.7</span>Preparing a Double-Door engineering unit for a deployment test, Fall 2024.</figcaption>
+</figure><figure class="tile" style="flex: 1.501 1 285px; aspect-ratio: 1.501; max-width: min(100%, 375px);" tabindex="0">
+<div class="frame"><img alt="The Sailing to the Stars team in the SSDS lab holding deployers, circuit boards and a light sail" loading="lazy" src="fig/s1-team.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 1.8</span>The Sailing to the Stars team with flight hardware, Fall 2024.</figcaption>
+</figure><figure class="tile" style="flex: 0.750 1 142px; aspect-ratio: 0.750; max-width: min(100%, 188px);" tabindex="0"><div class="frame"><img alt="Downmassed deployers returned from the ISS, bagged and tagged in a box with Rhodium Scientific stickers" loading="lazy" src="fig/s1-shipped.jpg"/></div><figcaption class="cap"><span class="mono">Fig. 1.9</span>The flight hardware back from the ISS: downmassed deployers, still bagged and tagged, returned for data recovery and inspection.</figcaption></figure></div>
+<dl class="specs">
+<div><dt>Deployments</dt><dd>6<small>3 per deployer design</small></dd></div>
+<div><dt>Designs</dt><dd>2<small>Single-Door, Double-Door</small></dd></div>
+<div><dt>Launch</dt><dd>1 Aug 2025<small>SpaceX Crew-11</small></dd></div>
+<div><dt>Flight hardware</dt><dd>8 + 3<small>payload sections, avionics cubes</small></dd></div>
+</dl>
+<div class="body">
+<div>
+<p class="outcome">Sailing to the Stars tested free-flying light sails inside the International Space Station, comparing two deployer designs across six astronaut-run deployments. I helped carry the mechanical design from engineering units to flight hardware and first-authored the mission’s mechanical design paper.</p>
+<div class="block">
+<p class="label">My role</p>
+<p>Mechanical subteam, Fall 2024 to Spring 2025. I owned the CAD for the avionics section and its interface to the sail payload, ran engineering-unit tests ahead of the Flight Analysis Readiness Review, led production of the burn-wire filament actuators that release each door, built flight sails, and tied the release line for every flight-unit test.</p>
+</div>
+<div class="block">
+<p class="label">Why it matters</p>
+<p>Light sails are pushed by sunlight alone, and future missions could pair them with gram-scale ChipSats. Little flight data exists on how a sail and its deployer move during release, so the experiment measured both with an onboard IMU and cabin video.</p>
+</div>
+<div class="block">
+<p class="label">Result</p>
+<p>All six sails released on command. Video and IMU data showed the Double-Door deployer was the more stable design, with straighter sail release and no off-axis spike in angular rate. None of the sails opened fully; the team traced this mainly to nitinol temperature and long stowage, which now drives storage tests for the next mission.</p>
+</div>
+</div>
+<div>
+<div class="block">
+<p class="label">Skills applied</p>
+<ul class="skills">
+<li>Flight hardware CAD in SolidWorks</li>
+<li>Tolerance iteration for a rattle-free interface</li>
+<li>Burn-wire release mechanisms</li>
+<li>Miura-folded sail assembly with nitinol frames, epoxy bonding</li>
+<li>Soldering and wire routing</li>
+<li>Verification testing: pin, separation, shear, vibration</li>
+<li>Technical writing: first-author conference paper</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="tablewrap">
+<table class="data">
+<caption><span class="mono">Table 1.1</span>All six ISS deployments, from the SSC26 results paper.</caption>
+<thead><tr><th>Run</th><th>Outcome</th><th>Sail fold vs. door hinge</th><th>Observed</th></tr></thead>
+<tbody>
+<tr><td>SD-1</td><td><span class="st">Unstable</span></td><td>Perpendicular</td><td>Sail hit the module wall</td></tr>
+<tr><td>SD-2</td><td><span class="st ok">Stable</span></td><td>Aligned</td><td>Emerged arced, oscillated down the bay</td></tr>
+<tr><td>SD-3</td><td><span class="st">Unstable</span></td><td>Perpendicular</td><td>Rotated 180° end over end</td></tr>
+<tr><td>DD-1</td><td><span class="st ok">Stable</span></td><td>Aligned</td><td>Emerged arced, rotated about its long axis</td></tr>
+<tr><td>DD-2</td><td><span class="st ok">Stable</span></td><td>Aligned</td><td>Rotated 180° while traveling down the bay</td></tr>
+<tr><td>DD-3</td><td><span class="st ok">Stable</span></td><td>Aligned</td><td>Rotated 180° while traveling down the bay</td></tr>
+</tbody>
+</table>
+</div>
+<details class="tech">
+<summary>Technical details</summary>
+<div class="inner">
+<ul>
+<li><b>Modular architecture.</b> One reusable Avionics Cube mates with swappable Payload Sections, so six deployments needed only three avionics units. I added PCB-holder height so the holder and chassis, not the electrical connector, set the mating fit.</li>
+<li><b>Print correction.</b> Prints came out systematically thinner than CAD, so I thickened the PCB holder walls to recover the tight fit.</li>
+<li><b>Post-FARR changes.</b> Chamfered screw holes so fasteners sit flush, extended a side panel to cover an exposed latch spring, and raised the avionics shell so a protruding LED no longer kept the unit from sitting level.</li>
+<li><b>Sail packing.</b> Each sail is Miura-folded, a rigid-origami pattern that collapses the membrane into a compact stack and lets it open in one motion when the nitinol wires spring back.</li>
+<li><b>Filament actuator redesign.</b> Replaced the coiled center wire with a straight diagonal segment on the Double-Door units, so the fishing line always contacts the heated wire and severs reliably.</li>
+<li><b>Lesson.</b> Ground tests showed sail orientation had no significant effect on whether a sail deployed. In flight, both unstable runs had the sail folded perpendicular to the door hinge, so fold orientation matters for stability even when release succeeds.</li>
+</ul>
+<div class="tablewrap">
+<table class="data">
+<caption><span class="mono">Table 1.2</span>Engineering-unit verification before the Flight Analysis Readiness Review (Feb 2025).</caption>
+<thead><tr><th>Test</th><th>Single-Door</th><th>Double-Door</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>Pin removal</td><td>0.25 kg</td><td>0.25 kg</td><td><span class="st ok">Pass</span></td></tr>
+<tr><td>Pin removal, 2nd safety</td><td>0.4 kg</td><td>0.7 kg</td><td><span class="st ok">Pass</span></td></tr>
+<tr><td>Chassis separation</td><td>1.7 kg</td><td>0.8 kg</td><td><span class="st ok">Pass</span></td></tr>
+<tr><td>Sail force on door</td><td>0.30 kg</td><td>0.35 kg</td><td><span class="st ok">Pass</span></td></tr>
+<tr><td>Pin shear</td><td colspan="2">Factor of safety 10</td><td><span class="st ok">Pass</span></td></tr>
+<tr><td>Launch vibration</td><td colspan="2">No mechanical or electrical failure</td><td><span class="st ok">Pass</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</details>
+<div class="backrow"><a class="back" href="#work">↑ Back to all projects</a></div>
+</article>
+<!-- ===== SHEET 2: DeSCENT ===== -->
+<article class="sheet" data-tags="mech test" id="descent">
+<div class="sheet-meta">
+<span class="mono">Jan 2026 – Present</span>
+<div class="tags"><span class="tag">Mechanisms</span><span class="tag">Test &amp; validation</span></div>
+</div>
+<div class="sheet-head"><h3><small>DeSCENT · Cornell SSDS</small>Releasing five ChipSats at rocket apogee</h3><div class="badgecol"><img alt="DeSCENT mission patch" class="badge descent" src="fig/logo-descent.png"/></div></div><div class="mosaic"><figure class="tile lead" style="flex: 1 1 100%; aspect-ratio: 2.222;" tabindex="0">
+<div class="frame"><img alt="Mission concept: a New Shepard rocket at about 100 km altitude releasing a cloud of ChipSats above a desert" loading="lazy" src="fig/s2-concept.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 2.1</span>The DeSCENT mission concept: ChipSats ejected near 100 km on a New Shepard suborbital flight. The ASCENT deployer is a smaller-scale test of the release. <span class="credit">Graphic: Cornell SSDS</span></figcaption>
+</figure><figure class="tile" style="flex: 0.667 1 127px; aspect-ratio: 0.667; max-width: min(100%, 167px);" tabindex="0">
+<div class="frame"><img alt="The ASCENT rocket standing on its launch tower" loading="lazy" src="fig/s2-tower.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 2.2</span>The ASCENT rocket on its launch tower. <span class="credit">Photo: William H. Kim</span></figcaption>
+</figure><figure class="tile dia" style="flex: 1.223 1 232px; aspect-ratio: 1.223; max-width: min(100%, 306px);" tabindex="0">
+<div class="frame dia"><img alt="Labeled cross-section: coupler, heat-set insert, body, springs, push plate, slots, ChipSat, door" loading="lazy" src="fig/s2-section.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 2.3</span>Deployer cross-section. Four compression springs behind a push plate drive the ChipSats and door out once the deployer leaves the body tube.</figcaption>
+</figure><figure class="tile" style="flex: 0.750 1 142px; aspect-ratio: 0.750; max-width: min(100%, 188px);" tabindex="0">
+<div class="frame"><img alt="Black 3D-printed cylindrical deployer with a ChipSat circuit board in its slot" loading="lazy" src="fig/s2-photo.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 2.4</span>Printed deployer with a ChipSat loaded in its slot.</figcaption>
+</figure><figure class="tile dia" style="flex: 1.088 1 207px; aspect-ratio: 1.088; max-width: min(100%, 272px);" tabindex="0">
+<div class="frame dia"><img alt="Exploded CAD: coupler, body, slots, ChipSat, door" loading="lazy" src="fig/s2-exploded.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 2.5</span>Exploded view. The coupler ties the deployer to a U-bolt on the rocket.</figcaption>
+</figure><figure class="tile" style="flex: 1.883 1 358px; aspect-ratio: 1.883; max-width: min(100%, 471px);" tabindex="0">
+<div class="frame"><img alt="Claire running a deployment test, ChipSat leaving the deployer" loading="lazy" src="fig/s2-test.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 2.6</span>Bench deployment test, frame from video.</figcaption>
+</figure><figure class="tile" style="flex: 1.500 1 285px; aspect-ratio: 1.500; max-width: min(100%, 375px);" tabindex="0">
+<div class="frame"><img alt="Team members working on the rocket at the launch site in a field" loading="lazy" src="fig/s2-field.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 2.7</span>Integration at the launch site. <span class="credit">Photo: William H. Kim</span></figcaption>
+</figure><figure class="tile" style="flex: 1.500 1 285px; aspect-ratio: 1.500; max-width: min(100%, 375px);" tabindex="0">
+<div class="frame"><img alt="The rocket resting on its launch rail with SSDS remove-before-flight tags" loading="lazy" src="fig/s2-rail.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 2.8</span>On the rail with remove-before-flight tags. <span class="credit">Photo: William H. Kim</span></figcaption>
+</figure></div>
+<dl class="specs">
+<div><dt>Payload</dt><dd>5 ChipSats</dd></div>
+<div><dt>Stages</dt><dd>2<small>tube ejection, then release</small></dd></div>
+<div><dt>Exit velocity target</dt><dd>2–4 m/s</dd></div>
+<div><dt>Springs</dt><dd>4<small>set by calculation and test</small></dd></div>
+</dl>
+<div class="body">
+<div>
+<p class="outcome">For the ASCENT rocket launch, I designed, assembled and tested a passive two-stage deployer: it ejects from the rocket’s body tube at apogee, then spring force pushes five ChipSats free. I sized the springs to hit a 2–4 m/s exit velocity and verified it on the bench.</p>
+<div class="block">
+<p class="label">My role</p>
+<p>Mechanical subteam, Spring 2026. I designed the deployer in Fusion 360 and led its assembly, integration and testing. I am now developing an active-release mechanism that scales the design to 10–20 ChipSats.</p>
+</div>
+<div class="block">
+<p class="label">Why it matters</p>
+<p>ChipSats are gram-scale spacecraft cheap enough to fly in swarms. A suborbital flight is a fast, low-cost way to prove they can be carried through launch and released cleanly, with no power needed for the passive design.</p>
+</div>
+<div class="block">
+<p class="label">Result</p>
+<p>Extensive lab testing with different spring counts confirmed four springs give the target exit velocity without excessive door friction in the body tube. The deployer has not been flight-tested yet.</p>
+</div>
+</div>
+<div>
+<div class="block">
+<p class="label">Skills applied</p>
+<ul class="skills">
+<li>Mechanism design in Fusion 360</li>
+<li>Spring sizing for exit velocity</li>
+<li>Design for 3D printing, heat-set inserts</li>
+<li>Assembly and vehicle integration</li>
+<li>Deployment testing</li>
+</ul>
+</div>
+</div>
+</div>
+<details class="tech">
+<summary>Technical details</summary>
+<div class="inner">
+<ul>
+<li>Everything is 3D printed except the four compression springs. The body and ChipSat slots print as one part, split in two halves so the springs can be installed, then epoxied together.</li>
+<li>Springs are heat-staked into the body and push plate and reinforced with hot glue.</li>
+<li>Four M4 heat-set inserts in the top of the body take the screws for the coupler and U-bolt assembly.</li>
+<li>A tether string keeps the door attached to the system after release.</li>
+</ul>
+</div>
+</details>
+<div class="backrow"><a class="back" href="#work">↑ Back to all projects</a></div>
+</article>
+<!-- ===== SHEET 3: ALPHA II ===== -->
+<article class="sheet" data-tags="lead space" id="alpha-ii">
+<div class="sheet-meta">
+<span class="mono">Jan 2026 – Present</span>
+<div class="tags"><span class="tag">Leadership</span><span class="tag">Spacecraft</span></div>
+</div>
+<div class="sheet-head"><h3><small>Alpha II · Cornell SSDS</small>Leading a light sail mission from concept review to design</h3></div><div class="mosaic"><figure class="tile dia lead" style="flex: 1 1 100%; aspect-ratio: 2.007;" tabindex="0">
+<div class="frame dia"><img alt="Alpha II CONOPS from launch and deployment through orbital operations to deorbit" loading="lazy" src="fig/s3-conops.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 3.1</span>Concept of operations: launch, sail deployment after detumble, operations with Iridium and TinyGS links and laser retroreflection, then drag deorbit.</figcaption>
+</figure><figure class="tile" style="flex: 1.333 1 253px; aspect-ratio: 1.333; max-width: min(100%, 333px);" tabindex="0">
+<div class="frame"><img alt="Claire and a teammate presenting the Alpha II timeline slide" loading="lazy" src="fig/s3-present.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 3.2</span>Presenting the review timeline at the Mission Concept Review, May 2026.</figcaption>
+</figure><figure class="tile" style="flex: 1.333 1 253px; aspect-ratio: 1.333; max-width: min(100%, 333px);" tabindex="0">
+<div class="frame"><img alt="Five Alpha II team members standing in front of the Alpha II MCR title slide" loading="lazy" src="fig/s3-team.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 3.3</span>Part of the Alpha II team after the review.</figcaption>
+</figure><figure class="tile" style="flex: 0.750 1 142px; aspect-ratio: 0.750; max-width: min(100%, 188px);" tabindex="0">
+<div class="frame"><img alt="Blue 3D-printed CubeSat chassis clamped to a table with a light sail hanging from it on wires" loading="lazy" src="fig/s3-proto-a.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 3.4</span>Sail held to the prototype chassis after deployment.</figcaption>
+</figure><figure class="tile" style="flex: 0.750 1 142px; aspect-ratio: 0.750; max-width: min(100%, 188px);" tabindex="0">
+<div class="frame"><img alt="CubeSat with purple solar panels and an open door, a light sail attached by wire loops" loading="lazy" src="fig/s3-proto-c.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 3.5</span>Attached-sail test on an Alpha-style bus, wire loops holding the sail.</figcaption>
+</figure><figure class="tile" data-video="fig/s3-deploy.mp4" style="flex: 1.778 1 338px; aspect-ratio: 1.778; max-width: min(100%, 444px);" tabindex="0">
+<div class="frame"><video aria-label="Video of the sail releasing from a blue prototype CubeSat chassis and staying attached" loop="" muted="" playsinline="" poster="fig/s3-deploy-poster2.jpg" preload="metadata" src="fig/s3-deploy.mp4"></video></div>
+<figcaption class="cap"><span class="mono">Fig. 3.6</span>Ground test of the attached-sail concept: the sail releases and stays tethered.</figcaption>
+<span aria-hidden="true" class="play">▶ Video</span></figure></div>
+<dl class="specs c3">
+<div><dt>Bus</dt><dd>1U CubeSat<small>≈1.29 kg, Alpha heritage</small></dd></div>
+<div><dt>Sail</dt><dd>575 × 575 mm<small>attached, with ChipSats</small></dd></div>
+<div><dt>Team</dt><dd>9<small>mechanical, avionics, software</small></dd></div>
+</dl>
+<div class="body">
+<div>
+<p class="outcome">Alpha II will fly a light sail that stays attached to its CubeSat, so the team can image the deployment, track the sail for longer, and finally use it as a drag device to deorbit. As mission lead I wrote the mission statement, objectives, concept of operations and requirements and presented them at the Mission Concept Review in May 2026.</p>
+<div class="block">
+<p class="label">My role</p>
+<p>Mission Lead and Mechanical Lead for a nine-person student team. I also derive the mechanical requirements and research concepts for tethering the sail after deployment.</p>
+</div>
+<div class="block">
+<p class="label">Why it matters</p>
+<p>Alpha flew in 2026 and proved a free-flying sail could deploy from a 1U CubeSat, but very few packets came back, all within about eight hours, and almost nothing about the deployment itself. Keeping the sail attached turns a one-shot release into a longer, observable experiment.</p>
+</div>
+<div class="block">
+<p class="label">Mission objectives</p>
+<p><b>Primary.</b> Verify sail and ChipSat deployment while attached in low Earth orbit; image the deployment and downlink it; receive ChipSat data on the ground.</p>
+<p><b>Extended.</b> Use the ChipSats as the sail’s avionics package; demonstrate laser communications by retroreflection off the sail; deorbit with the sail as a drag device.</p>
+</div>
+</div>
+<div>
+<div class="block">
+<p class="label">Skills applied</p>
+<ul class="skills">
+<li>Mission design and CONOPS</li>
+<li>Objectives and requirements flowdown</li>
+<li>Design reviews (MCR, SRR, PDR)</li>
+<li>Leading a cross-subsystem team</li>
+<li>Reusing flight-proven (TRL 9) hardware</li>
+</ul>
+</div>
+</div>
+</div>
+<ol aria-label="Alpha II review timeline" class="milestones">
+<li class="done"><b>MCR</b><span>May 2026</span></li>
+<li><b>SRR</b><span>Sep 2026</span></li>
+<li><span class="now">TODAY ▾</span><b>PDR</b><span>Nov–Dec 2026</span></li>
+<li><b>CDR</b><span>Nov–Dec 2027</span></li>
+<li><b>FRR</b><span>Apr 2028</span></li>
+<li><b>Launch</b><span>TBD</span></li>
+</ol>
+<details class="tech">
+<summary>Technical details</summary>
+<div class="inner">
+<ul>
+<li><b>Avionics.</b> Replace Alpha’s analog current sensor (INA169), which read 250 mA of solar current on the dark side of orbit, with a digital INA219 that tested within about 10%. Switch to new solar cells because Alpha’s are no longer made.</li>
+<li><b>Mechanical.</b> Rework the sail compartment and the sail itself so the sail stays tethered after deployment.</li>
+<li><b>Attitude control.</b> Bring back Alpha’s magnetorquer pointing algorithm and add modes for laser pointing and drag. The team compared single-magnetorquer torque (≈3.3 × 10⁻⁶ N·m) with sail drag torque at 400 km (≈4.1 × 10⁻⁶ N·m) to size the magnetorquers.</li>
+<li><b>Top risks.</b> Sail separation and attitude control failure (medium), sail failing to unfurl (low).</li>
+</ul>
+</div>
+</details>
+<div class="backrow"><a class="back" href="#work">↑ Back to all projects</a></div>
+</article>
+<!-- ===== SHEET 4: ALPHA CUBESAT BALLOON ===== -->
+<article class="sheet" data-tags="space test" id="alpha">
+<div class="sheet-meta">
+<span class="mono">Sep – Dec 2025</span>
+<div class="tags"><span class="tag">Spacecraft</span><span class="tag">Test &amp; validation</span></div>
+</div>
+<div class="sheet-head"><h3><small>Alpha CubeSat Balloon Launch · Cornell SSDS</small>Integrating and cold-testing a light sail CubeSat for near-space</h3><div class="badgecol"><img alt="Alpha CubeSat mission patch" class="badge" src="fig/logo-alpha.png"/><a class="sitelink" href="https://alphacubesat.cornell.edu/" rel="noopener" target="_blank">Mission site ↗</a></div></div><div class="mosaic"><figure class="tile lead" style="flex: 1 1 100%; aspect-ratio: 1.600;" tabindex="0">
+<div class="frame"><img alt="Render of the Alpha CubeSat with its door open and a square light sail deployed above Earth, the ISS in the distance" loading="lazy" src="fig/s4-render.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 4.1</span>Alpha releasing its light sail in orbit, mission render. The balloon flight tests the same deployment in a near-space environment. <span class="credit">Render: Cornell SSDS</span></figcaption>
+</figure><figure class="tile" style="flex: 0.712 1 135px; aspect-ratio: 0.712; max-width: min(100%, 178px);" tabindex="0">
+<div class="frame"><img alt="CubeSat on the suspension frame with labeled 360 camera, counterweight and GoPro" loading="lazy" src="fig/s4-frame.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 4.2</span>Suspension frame with the cameras and counterweight I mounted.</figcaption>
+</figure><figure class="tile" style="flex: 1.538 1 292px; aspect-ratio: 1.538; max-width: min(100%, 384px);" tabindex="0">
+<div class="frame"><img alt="Thermal test setup: CubeSat in a cooler with dry ice next to a styrofoam electronics box" loading="lazy" src="fig/s4-thermal.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 4.3</span>Thermal test: CubeSat chilled with dry ice beside its electronics box.</figcaption>
+</figure><figure class="tile" style="flex: 1.721 1 327px; aspect-ratio: 1.721; max-width: min(100%, 430px);" tabindex="0">
+<div class="frame"><img alt="Light sail stuck partway out of the CubeSat door after thermal testing" loading="lazy" src="fig/s4-stuck.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 4.4</span>After thermal test 2, the cold sail stuck in the door. This failure drove the insulation changes.</figcaption>
+</figure><figure class="tile dia" style="flex: 1.467 1 279px; aspect-ratio: 1.467; max-width: min(100%, 367px);" tabindex="0">
+<div class="frame dia"><img alt="Exploded CAD of the Alpha CubeSat with labeled solar panels, magnetorquers, batteries, flight computer and folded light sail" loading="lazy" src="fig/s4-bus.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 4.5</span>The Alpha CubeSat bus, exploded.</figcaption>
+</figure><figure class="tile dia" style="flex: 1.612 1 306px; aspect-ratio: 1.612; max-width: min(100%, 403px);" tabindex="0">
+<div class="frame dia"><img alt="CAD of the square light sail with nitinol wires and two ChipSats at opposite corners" loading="lazy" src="fig/s4-sail-cad.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 4.6</span>Light sail with ChipSats at opposite corners, CAD.</figcaption>
+</figure><figure class="tile dia" style="flex: 2.466 1 469px; aspect-ratio: 2.466; max-width: min(100%, 616px);" tabindex="0">
+<div class="frame dia"><img alt="Four video frames of the tethered sail deploying in the lab" loading="lazy" src="fig/s4-deploy.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 4.7</span>Lab deployment test with the sail tethered to the frame.</figcaption>
+</figure></div>
+<dl class="specs">
+<div><dt>Platform</dt><dd>Weather balloon<small>near-space environment</small></dd></div>
+<div><dt>Latch iterations</dt><dd>5<small>before the door held shut</small></dd></div>
+<div><dt>Thermal tests</dt><dd>2<small>insulation revised after each</small></dd></div>
+<div><dt>Sensors verified</dt><dd>7<small>5 internal, 2 external</small></dd></div>
+</dl>
+<div class="body">
+<div>
+<p class="outcome">To test light sail deployment in near-space, I did the mechanical and electrical integration of the Alpha CubeSat for a high-altitude balloon flight and ran the thermal tests that showed a cold sail would not fully unfurl.</p>
+<div class="block">
+<p class="label">My role</p>
+<p>Mechanical subteam, Fall 2025, working on an existing deployer design. I installed new solar panels, modified and reprinted a door latch that failed during integration, mounted the cameras and tether on the suspension frame, debugged the wiring harness against the Altium schematics, verified every sensor, and ran and analyzed the thermal tests.</p>
+</div>
+<div class="block">
+<p class="label">Result</p>
+<p>Deployment tests succeeded once the burn wire loops were kept clear of the coils. Thermal testing showed the 3D-printed chassis got cold enough to stop the sail unfurling, so we added foam and then masking tape lining to insulate the sail and heater compartments. The balloon flight has not happened yet.</p>
+</div>
+</div>
+<div>
+<div class="block">
+<p class="label">Skills applied</p>
+<ul class="skills">
+<li>Mechanical and electrical integration</li>
+<li>Part modification and reprinting</li>
+<li>Fastener and spacer selection</li>
+<li>Electrical debugging with schematics</li>
+<li>Arduino sensor verification</li>
+<li>Thermal testing and analysis</li>
+</ul>
+</div>
+</div>
+</div>
+<details class="tech">
+<summary>Technical details</summary>
+<div class="inner">
+<p style="margin:0;max-width:72ch">During integration, the existing latch that holds the sail door shut rotated about its carbon fiber rod and let the door open early. I modified and reprinted it; each print fixed one problem and exposed the next:</p>
+<div class="tablewrap">
+<table class="data">
+<caption><span class="mono">Table 4.1</span>Latch iteration log.</caption>
+<thead><tr><th>Rev</th><th>Change</th><th>Finding</th></tr></thead>
+<tbody>
+<tr><td>A</td><td>Thickness 9 mm vs. 10 mm</td><td>10 mm resisted rotation better, but sat too low and jammed the door</td></tr>
+<tr><td>B</td><td>Top extended +1 mm vs. +1.5 mm</td><td>+1.5 mm cleared the door, but a stowed sail could still push it open</td></tr>
+<tr><td>C</td><td>Extended downward 10 mm vs. 15 mm</td><td>10 mm kept the door shut, but added friction on the chassis and door</td></tr>
+<tr><td>D</td><td>Final: extended vertically +1.6 mm</td><td><span class="st ok">Held shut and released cleanly in testing</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</details>
+<div class="backrow"><a class="back" href="#work">↑ Back to all projects</a></div>
+</article>
+<!-- ===== SHEET 5: CORNELL NEXUS ===== -->
+<article class="sheet" data-tags="mech test" id="nexus">
+<div class="sheet-meta">
+<span class="mono">Sep 2025 – May 2026</span>
+<div class="tags"><span class="tag">Mechanisms</span><span class="tag">Test &amp; validation</span></div>
+</div>
+<div class="sheet-head"><h3><small>Drivetrain &amp; Vibration Feeder · Cornell Nexus</small>Securing a loose drivetrain and driving a feeder from both sides</h3><div class="badgecol"><img alt="Cornell Nexus logo" class="badge nexus" src="fig/logo-nexus.png"/><a class="sitelink" href="https://www.cornellnexus.com/" rel="noopener" target="_blank">Team site ↗</a></div></div><div class="mosaic"><figure class="tile dia lead" style="flex: 1 1 100%; aspect-ratio: 1.600;" tabindex="0">
+<div class="frame dia"><img alt="CAD of the feeder tray driven by motors on both ends, mounted on the filtration frame" loading="lazy" src="fig/s5-feeder-mounted.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 5.1</span>Final design: driven from both ends and mounted to the filtration frame.</figcaption>
+</figure><figure class="tile dia" style="flex: 1.994 1 379px; aspect-ratio: 1.994; max-width: min(100%, 498px);" tabindex="0">
+<div class="frame dia"><img alt="Side-view CAD of the robot with the bucket, drum, feeder, screw, mower and battery labeled and the sand path drawn in orange" loading="lazy" src="fig/s5-system.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 5.2</span>Material path through Honu, the beach-cleaning robot: bucket, drum, vibration feeder, screw and mower. I worked on the drivetrain and the vibration feeder.</figcaption>
+</figure><figure class="tile" style="flex: 0.808 1 154px; aspect-ratio: 0.808; max-width: min(100%, 202px);" tabindex="0">
+<div class="frame"><img alt="Front wheel mounted through a shaft coupler, circled in red" loading="lazy" src="fig/s5-before.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 5.3</span>Before: the wheel’s weight sat on the shaft coupler, which loosened.</figcaption>
+</figure><figure class="tile" style="flex: 1.097 1 208px; aspect-ratio: 1.097; max-width: min(100%, 274px);" tabindex="0">
+<div class="frame"><img alt="Front wheel mounted to a plate with standoffs, circled in red" loading="lazy" src="fig/s5-after.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 5.4</span>After: the wheel mounts to a secure plate.</figcaption>
+</figure><figure class="tile dia" style="flex: 1.680 1 319px; aspect-ratio: 1.680; max-width: min(100%, 420px);" tabindex="0">
+<div class="frame dia"><img alt="CAD front view of the feeder with a long axle running to the unactuated side" loading="lazy" src="fig/s5-axle.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 5.5</span>Intermediate iteration: a long axle to drive the unactuated side.</figcaption>
+</figure><figure class="tile dia" style="flex: 2.505 1 476px; aspect-ratio: 2.505; max-width: min(100%, 626px);" tabindex="0">
+<div class="frame dia"><img alt="CAD of the new two-piece clamping eccentric disk on the motor shaft" loading="lazy" src="fig/s5-clamp.jpg"/></div>
+<figcaption class="cap"><span class="mono">Fig. 5.6</span>New clamping eccentric disk on the motor shaft.</figcaption>
+</figure><figure class="tile" style="flex: 0.748 1 142px; aspect-ratio: 0.748; max-width: min(100%, 187px);" tabindex="0"><div class="frame"><img alt="Built feeder drive: motor, clamping eccentric disk and crank arm mounted to the filtration frame" loading="lazy" src="fig/s5-feeder-hw.jpg"/></div><figcaption class="cap"><span class="mono">Fig. 5.7</span>The built feeder drive: motor, clamping eccentric disk and crank arm on the filtration frame.</figcaption></figure></div>
+<dl class="specs c3">
+<div><dt>Front wheel load</dt><dd>On a plate<small>was hung on the shaft coupler</small></dd></div>
+<div><dt>Feeder drive</dt><dd>2 sides<small>was driven from 1</small></dd></div>
+<div><dt>Feeder iterations</dt><dd>3<small>one-sided, long axle, dual motor</small></dd></div>
+</dl>
+<div class="body">
+<div>
+<p class="outcome">On the Cornell Nexus project team, I fixed front wheels that kept working loose by moving their weight off the shaft couplers onto a secure plate, and reworked the vibration feeder so it is driven from both sides and mounts directly to the filtration subsystem.</p>
+<div class="block">
+<p class="label">My role</p>
+<p>Mechanical subteam, Sep 2025 to May 2026, on a student team of more than 30. Nexus builds Honu, an autonomous, solar-powered robot that drives along beaches and filters out microplastics.</p>
+</div>
+<div class="block">
+<p class="label">The problem</p>
+<p>The front wheels carried their weight on the shaft couplers, which loosened in use. The vibration feeder was driven from one side only.</p>
+</div>
+<div class="block">
+<p class="label">Result</p>
+<p>The front wheels are reattached and secured to a plate. The feeder now runs from a motor on each end, with a new clamping eccentric disk, and replaces an existing T-slot member on the filtration frame. The new feeder has not been tested on the full system yet.</p>
+</div>
+</div>
+<div>
+<div class="block">
+<p class="label">Skills applied</p>
+<ul class="skills">
+<li>Root-cause analysis of a loosening joint</li>
+<li>Load path redesign</li>
+<li>Crank-slider mechanism design</li>
+<li>Designing into an existing frame</li>
+<li>SolidWorks CAD</li>
+</ul>
+</div>
+</div>
+</div>
+<details class="tech">
+<summary>Technical details</summary>
+<div class="inner">
+<ul>
+<li>Vibration comes from a crank-slider mechanism: an eccentric disk on each motor shaft drives a crank arm that shakes the feeder tray.</li>
+<li>The intermediate design tried to drive the unactuated side through a long axle with a second crank arm and eccentric disk. The team ruled it out: a long axle would not be stiff enough to transmit the torque needed, and it added friction and misalignment problems.</li>
+<li>The final feeder bolts directly to the filtration frame in place of an existing T-slot member.</li>
+<li>Next step: tighter integration with the filtration subsystem.</li>
+</ul>
+</div>
+</details>
+<div class="backrow"><a class="back" href="#work">↑ Back to all projects</a></div>
+</article>
+</div>
+</section>
+<svg aria-hidden="true" height="0" style="position:absolute" width="0"><defs><pattern height="6" id="nrl-hatch" patterntransform="rotate(45)" patternunits="userSpaceOnUse" width="6"><rect fill="#c3d2ee" height="6" width="6"></rect><line stroke="#6f8cc4" stroke-width="1" x1="0" x2="0" y1="0" y2="6"></line></pattern></defs></svg>
+<section class="section nrl" id="experience">
+<div class="wrap">
+<div class="shead"><h2>Naval Research Laboratory</h2><span class="mono note">Washington, DC · 2023 – present</span></div>
+<div class="nrl-intro">
+<div>
+<p class="nrl-lede">Four summers as an intern at the U.S. Naval Research Laboratory, across four projects in spacecraft mechanisms, hypersonic testing and CubeSat development. As a DoD SMART Scholar, I join NRL full-time after graduating in 2028.</p>
+<dl class="specs nrl-specs">
+<div><dt>Summers at NRL</dt><dd>4<small>2023 – 2026</small></dd></div>
+<div><dt>Full-time</dt><dd>2028<small>3-year SMART service</small></dd></div>
+</dl>
+</div>
+<figure class="nrl-photo"><div class="frame" style="--ar: 4 / 5"><img alt="The U.S. Naval Research Laboratory building in Washington, DC, with a large radar dish on its roof and an American flag over the entrance" loading="lazy" src="fig/nrl-building.jpg"/></div><figcaption class="cap"><span class="mono">NRL</span>Washington, DC campus.</figcaption></figure>
+</div>
+<div class="tl-wrap">
+<div aria-label="Timeline from 2023 to 2031: CubeSat program summers 2023 and 2024, hypersonics summer 2025, spacecraft mechanisms summer 2026, Cornell graduation May 2028, then full-time at NRL 2028 to 2031" class="tl" role="img">
+<div class="tl-years"><span>2023</span><span>2024</span><span>2025</span><span>2026</span><span>2027</span><span>2028</span><span>2029</span><span>2030</span><span>2031</span></div>
+<div class="tl-track">
+<span class="tl-bar sum" style="--s:0.42;--e:0.68"><i>CubeSat</i></span>
+<span class="tl-bar sum" style="--s:1.42;--e:1.68"><i>CubeSat</i></span>
+<span class="tl-bar sum" style="--s:2.42;--e:2.68"><i>Hypersonics</i></span>
+<span class="tl-bar sum" style="--s:3.42;--e:3.68"><i>Mechanisms ×2</i></span>
+<span class="tl-bar ft" style="--s:5.4;--e:8.4">Full-time at NRL · SMART service</span>
+<span class="tl-mark now" style="--s:3.8"><b>Now</b></span>
+<span class="tl-mark grad" style="--s:5.38"><b>Cornell B.S.</b></span>
+</div>
+</div>
+</div>
+<ol class="nrl-roles">
+<li class="nrl-role">
+<div class="nrl-side"><span class="nrl-code">2026</span><span class="nrl-when">Summer 2026 · Intern</span><span class="nrl-prog">SMART Scholar internship</span><span class="nrl-kind">Naval Center for Space Technology, Code 8212</span><span class="nrl-count">2 projects</span></div>
+<div class="nrl-main">
+<div class="nrl-proj">
+<div class="nrl-proj-text">
+<h3>Custom encoder housing and validation testing</h3>
+<ul class="skills"><li>Designed and 3D-printed a custom housing for an encoder.</li><li>Wrote the wiring diagrams and test procedures.</li><li>Ran the validation tests and performed the error analysis on the results.</li></ul>
+<div class="nrl-chips"><span class="tag">Additive manufacturing</span><span class="tag">Wiring diagrams</span><span class="tag">Test procedures</span><span class="tag">Error analysis</span></div>
+</div>
+<figure class="nrl-fig"><svg aria-label="Illustration of an encoder validation loop: motor, shaft coupler, encoder in a printed housing, data acquisition and an error plot" role="img" viewbox="0 0 260 172">
+<rect class="k" height="40" width="52" x="8" y="58"></rect><line class="k" x1="18" x2="18" y1="58" y2="98"></line><line class="k" x1="50" x2="50" y1="58" y2="98"></line>
+<line class="k" x1="60" x2="104" y1="78" y2="78"></line><rect class="k f" height="12" width="12" x="78" y="72"></rect>
+<rect class="k hatchf" height="56" width="58" x="104" y="50"></rect><circle class="k w" cx="133" cy="78" r="17"></circle><circle class="k" cx="133" cy="78" r="3"></circle>
+<g class="k"><line x1="147.0" x2="150.0" y1="78.0" y2="78.0"></line><line x1="145.9" x2="148.7" y1="83.4" y2="84.5"></line><line x1="142.9" x2="145.0" y1="87.9" y2="90.0"></line><line x1="138.4" x2="139.5" y1="90.9" y2="93.7"></line><line x1="133.0" x2="133.0" y1="92.0" y2="95.0"></line><line x1="127.6" x2="126.5" y1="90.9" y2="93.7"></line><line x1="123.1" x2="121.0" y1="87.9" y2="90.0"></line><line x1="120.1" x2="117.3" y1="83.4" y2="84.5"></line><line x1="119.0" x2="116.0" y1="78.0" y2="78.0"></line><line x1="120.1" x2="117.3" y1="72.6" y2="71.5"></line><line x1="123.1" x2="121.0" y1="68.1" y2="66.0"></line><line x1="127.6" x2="126.5" y1="65.1" y2="62.3"></line><line x1="133.0" x2="133.0" y1="64.0" y2="61.0"></line><line x1="138.4" x2="139.5" y1="65.1" y2="62.3"></line><line x1="142.9" x2="145.0" y1="68.1" y2="66.0"></line><line x1="145.9" x2="148.7" y1="72.6" y2="71.5"></line></g>
+<path class="k" d="M162 78 H190 V70"></path><rect class="k f" height="22" width="66" x="186" y="52"></rect><text text-anchor="middle" x="219" y="66">DAQ</text>
+<path class="k" d="M219 74 V112"></path><rect class="k w" height="52" width="102" x="150" y="112"></rect>
+<polyline class="k acc" points="158,150 172,142 186,146 200,134 214,138 228,126 244,130"></polyline>
+<g class="k"><line x1="172" x2="172" y1="136" y2="148"></line><line x1="200" x2="200" y1="128" y2="140"></line><line x1="228" x2="228" y1="120" y2="132"></line></g>
+<text text-anchor="middle" x="34" y="112">MOTOR</text><text text-anchor="middle" x="133" y="42">PRINTED HOUSING</text><text class="n" text-anchor="middle" x="84" y="98">COUPLER</text><text class="n" x="150" y="107">ERROR ANALYSIS</text>
+</svg><figcaption>Illustration · not program hardware</figcaption></figure>
+</div>
+<div class="nrl-proj">
+<div class="nrl-proj-text">
+<h3>Mechanism concepts for hypersonic control surfaces</h3>
+<ul class="skills"><li>Generated mechanism design concepts for the control surfaces of a hypersonic flight vehicle.</li><li>Built lofted CAD models to support the vehicle geometry and component design.</li></ul>
+<div class="nrl-chips"><span class="tag">Mechanism concepts</span><span class="tag">Lofted surface CAD</span><span class="tag">Design synthesis</span></div>
+</div>
+<figure class="nrl-fig"><svg aria-label="Illustration of a generic hypersonic flight vehicle with its control surfaces highlighted and shock lines from the nose" role="img" viewBox="0 0 260 172">
+<g class="k dash"><path d="M28 92 L120 40"/><path d="M28 92 L120 140"/></g>
+<path class="k f" d="M28 92 L196 66 L232 72 L232 108 L196 116 Z"/>
+<path class="k w" d="M70 86 L196 70 L196 112 L70 98 Z"/>
+<path class="k" d="M28 92 L232 90"/>
+<path class="k acc fillacc" d="M196 66 L238 50 L244 54 L232 72 Z"/>
+<path class="k acc fillacc" d="M196 116 L238 132 L244 128 L232 108 Z"/>
+<path class="k acc fillacc" d="M206 84 L240 82 L240 92 L206 92 Z"/>
+<rect class="k" x="232" y="76" width="10" height="28"/>
+<g class="k"><line x1="120" y1="104" x2="150" y2="104"/><line x1="120" y1="78" x2="150" y2="74"/></g>
+<text x="40" y="40">SHOCK</text>
+<line class="k" x1="64" y1="44" x2="80" y2="62"/>
+<text x="168" y="156">CONTROL SURFACES</text>
+<line class="k" x1="210" y1="148" x2="232" y2="128"/>
+<text class="n" x="134" y="132">AIRFRAME</text>
+</svg><figcaption>Illustration · not program hardware</figcaption></figure>
+</div>
+</div>
+</li>
+<li class="nrl-role">
+<div class="nrl-side"><span class="nrl-code">2025</span><span class="nrl-when">Summer 2025 · Intern</span><span class="nrl-prog">JHTO hypersonics program</span><span class="nrl-kind">Naval Center for Space Technology, Code 8212</span><span class="nrl-count">1 project</span></div>
+<div class="nrl-main">
+<div class="nrl-proj">
+<div class="nrl-proj-text">
+<h3>Hypersonic test instrumentation and data acquisition</h3>
+<ul class="skills"><li>Diagnosed anomalies in hypersonic test instrumentation and data acquisition systems.</li><li>Traced each anomaly to its root cause and implemented the corrective fix.</li><li>Developed and ran component verification and validation tests to evaluate performance.</li></ul>
+<div class="nrl-chips"><span class="tag">Instrumentation</span><span class="tag">Data acquisition</span><span class="tag">Root-cause analysis</span><span class="tag">Verification &amp; validation</span></div>
+</div>
+<figure class="nrl-fig"><svg aria-label="Illustration of a test instrumentation chain: sensor, signal conditioning, data acquisition and data review, with an anomaly traced back to its root cause" role="img" viewbox="0 0 260 172">
+<rect class="k f" height="34" width="54" x="4" y="40"></rect><text text-anchor="middle" x="31" y="61">SENSOR</text>
+<rect class="k f" height="34" width="54" x="70" y="40"></rect><text text-anchor="middle" x="97" y="55">SIGNAL</text><text text-anchor="middle" x="97" y="66">COND.</text>
+<rect class="k f" height="34" width="54" x="136" y="40"></rect><text text-anchor="middle" x="163" y="61">DAQ</text>
+<rect class="k w" height="46" width="54" x="202" y="34"></rect><polyline class="k acc" points="207,62 214,60 220,62 226,61 230,44 234,62 240,60 250,61"></polyline>
+<g class="k"><line x1="58" x2="70" y1="57" y2="57"></line><line x1="124" x2="136" y1="57" y2="57"></line><line x1="190" x2="202" y1="57" y2="57"></line></g>
+<path class="k hot" d="M64 22 L72 36 H56 Z"></path><text style="font-size:7px" text-anchor="middle" x="64" y="33">!</text><text text-anchor="middle" x="64" y="16">ANOMALY</text>
+<path class="k dash hot" d="M229 82 V112 H64 V78"></path><path class="k hot" d="M60 84 L64 77 L68 84"></path>
+<text text-anchor="middle" x="146" y="128">ROOT CAUSE → FIX</text>
+<rect class="k" height="22" width="252" x="4" y="142"></rect><text class="n" text-anchor="middle" x="130" y="156">VERIFICATION &amp; VALIDATION TESTS</text>
+</svg><figcaption>Illustration · not program hardware</figcaption></figure>
+</div>
+</div>
+</li>
+<li class="nrl-role">
+<div class="nrl-side"><span class="nrl-code">2023–24</span><span class="nrl-when">Summers 2023 &amp; 2024 · Intern</span><span class="nrl-prog">Student CubeSat program</span><span class="nrl-kind">RF Lab, Code 8241</span><span class="nrl-count">1 project</span></div>
+<div class="nrl-main">
+<div class="nrl-proj">
+<div class="nrl-proj-text">
+<h3>Deployables for a student 3U CubeSat</h3>
+<ul class="skills"><li>Mechanical lead on a seven-person team of high school and college students developing a 3U CubeSat with an RF payload.</li><li>Designed CAD models of the deployable solar arrays and antennas.</li><li>Built full-scale mock-ups of the deployables to check fit and motion.</li></ul>
+<div class="nrl-chips"><span class="tag">Mechanical lead</span><span class="tag">Deployable structures</span><span class="tag">CubeSat structures</span><span class="tag">Prototyping</span></div>
+</div>
+<figure class="nrl-fig"><svg aria-label="Illustration of a generic 3U CubeSat with two deployed solar panels and two antennas" role="img" viewbox="0 0 260 172">
+<rect class="k hatchf" height="92" width="90" x="12" y="40"></rect>
+<g class="k"><line x1="34.5" x2="34.5" y1="40" y2="132"></line><line x1="57" x2="57" y1="40" y2="132"></line><line x1="79.5" x2="79.5" y1="40" y2="132"></line><line x1="12" x2="102" y1="63" y2="63"></line><line x1="12" x2="102" y1="86" y2="86"></line><line x1="12" x2="102" y1="109" y2="109"></line></g>
+<rect class="k hatchf" height="92" width="90" x="158" y="40"></rect>
+<g class="k"><line x1="180.5" x2="180.5" y1="40" y2="132"></line><line x1="203" x2="203" y1="40" y2="132"></line><line x1="225.5" x2="225.5" y1="40" y2="132"></line><line x1="158" x2="248" y1="63" y2="63"></line><line x1="158" x2="248" y1="86" y2="86"></line><line x1="158" x2="248" y1="109" y2="109"></line></g>
+<rect class="k w" height="120" width="44" x="108" y="26"></rect><g class="k"><line x1="108" x2="152" y1="66" y2="66"></line><line x1="108" x2="152" y1="106" y2="106"></line></g>
+<g class="k"><line x1="102" x2="108" y1="86" y2="86"></line><line x1="152" x2="158" y1="86" y2="86"></line></g>
+<g class="k acc"><line x1="116" x2="96" y1="26" y2="6"></line><line x1="144" x2="164" y1="26" y2="6"></line></g>
+<text text-anchor="middle" x="130" y="160">3U · DEPLOYED</text><text class="n" text-anchor="middle" x="57" y="152">SOLAR ARRAY</text><text class="n" text-anchor="middle" x="203" y="152">SOLAR ARRAY</text><text class="n" text-anchor="middle" x="130" y="14">ANTENNAS</text>
+</svg><figcaption>Illustration · not program hardware</figcaption></figure>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</section>
+<!-- ================= PUBLICATIONS ================= -->
+<section class="section" id="publications">
+<div class="wrap">
+<div class="shead"><h2>Publications</h2><span class="mono note">3 conference papers · 1 first author</span></div>
+<ol class="pubs">
+<li class="pub">
+<span class="yr">2026</span>
+<span class="t">Sailing to the Stars ISS Experiment: Results and Conclusions from Light Sail Deployments in Microgravity<span class="v">40th Annual Small Satellite Conference · Logan, UT · SSC26-P2-42</span><span class="role">Co-author</span></span>
+<a class="lnk" href="https://digitalcommons.usu.edu/smallsat/2026/all2026/166" rel="noopener" target="_blank">Read ↗</a>
+</li>
+<li class="pub">
+<span class="yr">2025</span>
+<span class="t">Unfurling Light Sails for Advanced Deployment Technology: Sailing to the Stars Mission Mechanical Design<span class="v">7th International Symposium on Space Sailing · TU Delft, The Netherlands</span><span class="role first">First author</span></span>
+<a class="lnk" download="Kim_ISSS2025_Sailing_to_the_Stars.pdf" href="fig/Kim_ISSS2025_Sailing_to_the_Stars.pdf">PDF ↓</a>
+</li>
+<li class="pub">
+<span class="yr">2025</span>
+<span class="t">Sailing to the Stars: Free-Flying Light Sails in Microgravity<span class="v">39th Annual Small Satellite Conference · Logan, UT · SSC25-P1-54</span><span class="role">Co-author</span></span>
+<a class="lnk" href="https://digitalcommons.usu.edu/smallsat/2025/all2025/74" rel="noopener" target="_blank">Read ↗</a>
+</li>
+</ol>
+</div>
+</section>
+<!-- ================= EXPERIENCE ================= -->
+
+<!-- ================= SKILLS + HONORS ================= -->
+<section class="section" id="skills">
+<div class="wrap">
+<div class="two">
+<div>
+<div class="shead"><h2>Toolkit</h2></div>
+<dl class="kit">
+<dt>CAD</dt><dd>SolidWorks, Siemens NX, Fusion 360</dd>
+<dt>Code</dt><dd>MATLAB, Python, Arduino, GitLab, Linux</dd>
+<dt>Electronics</dt><dd>KiCAD, Altium, soldering, harness debugging</dd>
+<dt>Mission</dt><dd>STK, RF communications, space system and mission design</dd>
+<dt>Shop</dt><dd>Additive manufacturing, mill, lathe, epoxy and composite bonding</dd>
+<dt>Languages</dt><dd>English (native), Japanese (limited working), Korean (elementary)</dd>
+</dl>
+</div>
+<div>
+<div class="shead"><h2>Honors</h2></div>
+<ul class="hon">
+<li><span class="yrs">2025–2028</span><div><strong>DoD SMART Scholar</strong><span class="d">Department of Defense scholarship-for-service, sponsored by NRL.</span></div></li>
+<li><span class="yrs">2024–2026</span><div><strong>Northrop Grumman Scholarship</strong><span class="d">Awarded three consecutive years.</span></div></li>
+<li><span class="yrs">2025, 2026</span><div><strong>Dorothy Lemke Howarth Memorial Scholarship</strong><span class="d">Society of Women Engineers.</span></div></li>
+<li><span class="yrs">2024–2025</span><div><strong>Cornell Engineering Leadership</strong><span class="d">Selander Center for Engineering Leadership badges in Core Values (2024) and Followership (2025); ENGRG 4835, Engineering Leadership Skill Clinic: Receiving Feedback.</span></div></li>
+<li><span class="yrs">2024</span><div><strong>Crittenberger Award</strong><span class="d">Given to two Langley High School student-athletes for academics, athletics and community impact.</span></div></li>
+<li><span class="yrs">2023</span><div><strong>Girl Scout Gold Award, “Girls in STEM”</strong><span class="d">Highest award in Girl Scouts, for an 80-hour-minimum service project.</span></div></li>
+<li><span class="yrs">2023–2024</span><div><strong>Scholarships</strong><span class="d">Girl Scouts Nation’s Capital Gold Award Scholarship, Northern Virginia Girl Scout Scholarship, NVADACA Scholarship, Korean American Scholarship Foundation High School Award.</span></div></li>
+</ul>
+<p class="label" style="margin-top:28px">Involved in</p>
+<p style="margin:0;color:var(--ink-2)">Society of Women Engineers, Cornell Fashion Collective, Korean-American Student Association</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= CONTACT ================= -->
+<section class="section contact" id="contact">
+<div class="wrap">
+<h2>Get in touch</h2>
+<div class="row">
+<span class="email" id="email">cwk66@cornell.edu</span>
+<button class="btn" id="copy" type="button">Copy email</button>
+<a class="btn ghost" href="https://www.linkedin.com/in/claire-kim-3a2a26258/" rel="noopener" target="_blank">LinkedIn ↗</a>
+<a class="btn ghost" download="Claire_Kim_Resume.pdf" href="fig/Claire_Kim_Resume.pdf">Download résumé ↓</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="foot">
+<div class="wrap">
+<span>Claire Kim · Cornell University</span>
+<a href="#top">Back to top ↑</a>
+</div>
+</footer>
+<a class="totop" href="#top" id="totop" aria-label="Back to top">↑ Top</a>
+
+<script>
+(function () {
+  var tabs = document.querySelectorAll('[role="tab"]');
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      tabs.forEach(function (x) {
+        var on = x === t; x.setAttribute('aria-selected', String(on));
+        document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+      });
+    });
+  });
+  var chips = document.querySelectorAll('.chips button');
+  chips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      chips.forEach(function (x) { x.setAttribute('aria-pressed', String(x === c)); });
+      document.querySelectorAll('.syn').forEach(function (g) { g.hidden = g.dataset.g !== c.dataset.g; });
+    });
+  });
+
+  var links = document.querySelectorAll('.top nav a');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) links.forEach(function (a) { a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id); });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    ['about','work','publications','experience','skills','contact'].forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
+  }
+
+
+  /* ---------- mosaics + lightbox ---------- */
+  var lb = document.createElement('div');
+  lb.className = 'lb'; lb.hidden = true; lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-modal', 'true'); lb.setAttribute('aria-label', 'Image viewer');
+  lb.innerHTML = '<div class="lb-media"></div><div class="lb-bar"><div class="lb-cap"></div><span class="lb-count"></span><button type="button" data-a="prev" aria-label="Previous image">←</button><button type="button" data-a="next" aria-label="Next image">→</button><button type="button" data-a="close">Close</button></div>';
+  document.body.appendChild(lb);
+  var lbMedia = lb.querySelector('.lb-media'), lbCap = lb.querySelector('.lb-cap'), lbCount = lb.querySelector('.lb-count');
+  var set = [], idx = 0, opener = null;
+  function render() {
+    var t = set[idx], m;
+    lbMedia.innerHTML = '';
+    if (t.dataset.video) {
+      m = document.createElement('video'); m.src = t.dataset.video; m.controls = true; m.playsInline = true; m.autoplay = true; m.muted = true; m.loop = true;
+    } else {
+      var src = t.querySelector('img'); m = document.createElement('img'); m.src = src.getAttribute('src'); m.alt = src.getAttribute('alt') || '';
+    }
+    lbMedia.appendChild(m);
+    var c = t.querySelector('figcaption'); lbCap.innerHTML = c ? c.innerHTML : '';
+    lbCount.textContent = (idx + 1) + ' / ' + set.length;
+  }
+  function openLb(tile) {
+    if (document.body.classList.contains('editing')) return;
+    set = Array.prototype.slice.call(tile.parentNode.querySelectorAll('.tile')); idx = set.indexOf(tile); opener = tile;
+    render(); lb.hidden = false; document.documentElement.style.overflow = 'hidden'; lb.querySelector('[data-a="close"]').focus();
+  }
+  function closeLb() { lb.hidden = true; lbMedia.innerHTML = ''; document.documentElement.style.overflow = ''; if (opener) opener.focus(); }
+  lb.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('button') ? e.target.closest('button').dataset.a : (e.target === lb || e.target === lbMedia ? 'close' : null);
+    if (a === 'close') closeLb();
+    if (a === 'next') { idx = (idx + 1) % set.length; render(); }
+    if (a === 'prev') { idx = (idx - 1 + set.length) % set.length; render(); }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowRight') { idx = (idx + 1) % set.length; render(); }
+    if (e.key === 'ArrowLeft') { idx = (idx - 1 + set.length) % set.length; render(); }
+  });
+  document.querySelectorAll('.tile').forEach(function (t) {
+    t.addEventListener('click', function () { openLb(t); });
+    t.addEventListener('keydown', function (e) { if ((e.key === 'Enter' || e.key === ' ') && !document.body.classList.contains('editing')) { e.preventDefault(); openLb(t); } });
+    var v = t.querySelector('video');
+    if (v) { t.addEventListener('mouseenter', function () { try { v.play(); } catch (e) {} }); t.addEventListener('mouseleave', function () { try { v.pause(); } catch (e) {} }); }
+  });
+
+  var totop = document.getElementById('totop');
+  function tt() { totop.classList.toggle('show', window.scrollY > 900); }
+  window.addEventListener('scroll', tt, { passive: true }); tt();
+
+
+  var copy = document.getElementById('copy');
+  copy.addEventListener('click', function () {
+    var el = document.getElementById('email');
+    var done = function () { copy.textContent = 'Copied'; setTimeout(function () { copy.textContent = 'Copy email'; }, 1600); };
+    var fallback = function () {
+      var r = document.createRange(); r.selectNodeContents(el);
+      var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      copy.textContent = 'Selected — press copy';
+    };
+    try { navigator.clipboard.writeText(el.textContent).then(done, fallback); } catch (e) { fallback(); }
+  });
+})();
+</script>
+
+</body>
+</html>
