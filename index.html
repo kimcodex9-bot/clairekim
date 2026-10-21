@@ -438,6 +438,12 @@ details.tech .tablewrap { margin-top: 18px; }
 .pabs b { display: block; font-family: var(--mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--note); margin-bottom: 6px; }
 .pub .role::before { content: none; }
 .pub .role { position: static; padding: 2px 6px; }
+.pposter { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px 16px; margin-top: 14px; }
+.pposter .tile { width: 220px; aspect-ratio: 3240 / 2808; flex: none; border: 1px solid var(--rule); }
+.pposter .tile .frame img { object-fit: cover; }
+.pposter .tile figcaption.cap { font-size: 0.75rem; padding: 6px 8px; }
+.pposter .plinks { display: flex; flex-direction: column; gap: 8px; font-family: var(--mono); font-size: var(--step--1); letter-spacing: 0.05em; text-transform: uppercase; }
+.pposter .plabel { color: var(--note); font-size: 0.72rem; }
 /* return link */
 .backrow { margin-top: 28px; display: flex; justify-content: flex-end; }
 .back { font-family: var(--mono); font-size: var(--step--1); letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--ink); padding: 9px 12px; }
@@ -1123,8 +1129,8 @@ details.tech .tablewrap { margin-top: 18px; }
 <ol class="pubs">
 <li class="pub">
 <span class="yr">2026</span>
-<span class="t"><button aria-controls="abs1" aria-expanded="false" class="ptoggle" type="button">Sailing to the Stars ISS Experiment: Results and Conclusions from Light Sail Deployments in Microgravity</button><span class="v">40th Annual Small Satellite Conference · Logan, UT · SSC26-P2-42</span><span class="role">Co-author</span><span class="pabs" hidden id="abs1"><b>Abstract</b>Sailing to the Stars is an experiment led by students at Cornell University to deploy free-flying light sails within the microgravity environment of the International Space Station. As this light sail architecture is relatively new, additional insights on the sail deployment dynamics and deployer design are needed to guide future use of this technology. The hardware launched to the International Space Station with Crew-11 on August 1st, 2025. Astronauts followed the developed procedures to conduct six light sail deployments in total from two different deployer designs. During each test, data was recorded from the Inertial Measurement Unit within each deployer along with video footage of the deployments. This paper assesses the data and shares useful insights from the experiment execution. An analysis of each of the six deployments determines which deployer concept is most stable and recommended for future missions.</span></span>
-<a class="lnk" href="https://digitalcommons.usu.edu/smallsat/2026/all2026/166" rel="noopener" target="_blank">Read ↗</a>
+<span class="t"><button aria-controls="abs1" aria-expanded="false" class="ptoggle" type="button">Sailing to the Stars ISS Experiment: Results and Conclusions from Light Sail Deployments in Microgravity</button><span class="v">40th Annual Small Satellite Conference · Logan, UT · SSC26-P2-42</span><span class="role">Co-author</span><span class="pabs" hidden id="abs1"><b>Abstract</b>Sailing to the Stars is an experiment led by students at Cornell University to deploy free-flying light sails within the microgravity environment of the International Space Station. As this light sail architecture is relatively new, additional insights on the sail deployment dynamics and deployer design are needed to guide future use of this technology. The hardware launched to the International Space Station with Crew-11 on August 1st, 2025. Astronauts followed the developed procedures to conduct six light sail deployments in total from two different deployer designs. During each test, data was recorded from the Inertial Measurement Unit within each deployer along with video footage of the deployments. This paper assesses the data and shares useful insights from the experiment execution. An analysis of each of the six deployments determines which deployer concept is most stable and recommended for future missions.</span><span class="pposter"><figure class="tile" tabindex="0"><div class="frame"><img alt="SmallSat 2026 poster: Sailing to the Stars ISS Experiment results" data-full="fig/ssc26-poster.jpg" loading="lazy" src="fig/ssc26-poster-thumb.jpg"/></div><figcaption class="cap"><span class="mono">Poster</span>Sailing to the Stars ISS Experiment, SmallSat 2026 (SSC26-P2-42).</figcaption></figure><span class="plinks"><span class="plabel">Conference poster</span><span>Click to enlarge</span><a href="https://digitalcommons.usu.edu/cgi/viewcontent.cgi?article=6645&amp;context=smallsat" rel="noopener" target="_blank">Poster PDF ↗</a></span></span></span>
+<a class="lnk" href="https://digitalcommons.usu.edu/cgi/viewcontent.cgi?filename=1&amp;article=6645&amp;context=smallsat&amp;type=additional" rel="noopener" target="_blank">Paper ↗</a>
 </li>
 <li class="pub">
 <span class="yr">2025</span>
@@ -1237,7 +1243,7 @@ details.tech .tablewrap { margin-top: 18px; }
     if (t.dataset.video) {
       m = document.createElement('video'); m.src = t.dataset.video; m.controls = true; m.playsInline = true; m.autoplay = true; m.muted = true; m.loop = true;
     } else {
-      var src = t.querySelector('img'); m = document.createElement('img'); m.src = src.getAttribute('src'); m.alt = src.getAttribute('alt') || '';
+      var src = t.querySelector('img'); m = document.createElement('img'); m.src = src.getAttribute('data-full') || src.getAttribute('src'); m.alt = src.getAttribute('alt') || '';
     }
     lbMedia.appendChild(m);
     var c = t.querySelector('figcaption'); lbCap.innerHTML = c ? c.innerHTML : '';
