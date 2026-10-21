@@ -431,8 +431,9 @@ details.tech .tablewrap { margin-top: 18px; }
 .ptoggle { all: unset; cursor: pointer; display: inline; font: inherit; color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-decoration-color: var(--rule); text-underline-offset: 5px; }
 .ptoggle:hover { text-decoration-color: var(--ink); }
 .ptoggle:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
-.ptoggle::after { content: " +"; font-family: var(--mono); font-size: 0.8em; color: var(--note); }
-.ptoggle[aria-expanded="true"]::after { content: " –"; }
+.ptoggle::after { content: "Abstract +"; display: inline-block; vertical-align: 0.2em; margin-left: 10px; padding: 3px 7px; border: 1px solid var(--ink); font-family: var(--mono); font-size: 0.62em; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); background: var(--paper); text-decoration: none; }
+.ptoggle:hover::after { background: var(--ink); color: var(--paper); }
+.ptoggle[aria-expanded="true"]::after { content: "Hide –"; background: var(--ink); color: var(--paper); }
 .pabs { display: block; margin-top: 14px; padding: 14px 16px; background: var(--hatch); border-left: 3px solid var(--ink); font-family: var(--body); font-size: 0.95rem; font-weight: 400; line-height: 1.6; color: var(--ink-2); max-width: 75ch; font-variation-settings: normal; }
 .pabs b { display: block; font-family: var(--mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--note); margin-bottom: 6px; }
 .pub .role::before { content: none; }
